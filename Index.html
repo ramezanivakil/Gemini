@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفتر وکالت و مشاوره حقوقی | وکیل پایه یک دادگستری</title>
+    <!-- گوگل فونت Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- آیکون‌های FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- لینک به فایل CSS اختصاصی -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- هدر -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-scale-balanced"></i>
+                دفتر وکالت رضا حسینی
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#services">خدمات و تخصص‌ها</a></li>
+                <li><a href="#about">درباره وکیل</a></li>
+                <li><a href="#contact">تماس با ما</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- بخش اصلی (Hero) -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>رضا حسینی</h1>
+            <div class="subtitle">وکیل پایه یک دادگستری | متخصص دعاوی تجاری و ملکی</div>
+            <p>
+                ارائه خدمات جامع مشاوره حقوقی، تنظیم قراردادهای پیچیده تجاری، و وکالت تخصصی در دعاوی ملکی، شرکت‌ها و بین‌الملل با بیش از ۱۵ سال سابقه موثر.
+            </p>
+            <a href="#contact" class="btn-gold">درخواست مشاوره تخصصی</a>
+        </div>
+        <div class="hero-image">
+            <img src="profile.jpg" alt="رضا حسینی وکیل پایه یک">
+        </div>
+    </section>
+
+    <!-- بخش تخصص‌ها -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>خدمات حقوقی شرکت‌ها و اشخاص</h2>
+        </div>
+        <div class="cards-grid">
+            
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                <h3>ادغام و تملک (M&A)</h3>
+                <p>مشاوره حقوقی تخصصی در زمینه ادغام شرکت‌ها، ارزیابی ریسک حقوقی و تنظیم موافقت‌نامه‌های تجاری کلان.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <h3>حقوق ورشکستگی و بازسازی</h3>
+                <p>مدیریت بحران‌های مالی شرکت‌ها، پیگیری پرونده‌های ورشکستگی و بازسازی ساختار حقوقی پروژه‌ها.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-copyright"></i></div>
+                <h3>مالکیت فکری و علامت تجاری</h3>
+                <p>ثبت و دفاع از علائم تجاری، اختراعات، برندها و حمایت از دارایی‌های معنوی شرکت‌ها در سراسر کشور.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- بخش تماس با ما -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>ارتباط با دفتر وکالت</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>اطلاعات تماس</h3>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>تهران، خیابان ولیعصر، بالاتر از ظفر، مجتمع اداری ...، واحد ...</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>021-88888888</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>info@lawyer-domain.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>شنبه تا چهارشنبه: ۹ صبح الی ۶ عصر (با تعیین وقت قبلی)</span>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="consultationForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="نام و نام خانوادگی" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="شماره تماس" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="خلاصه موضوع حقوقی..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold form-btn">ارسال پیام</button>
+                </form>
+                <div id="formStatus" class="form-status"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- فوتر -->
+    <footer>
+        <p>تمامی حقوق این سایت متعلق به دفتر وکالت رضا حسینی می‌باشد © ۱۴۰۳</p>
+    </footer>
+
+    <!-- لینک به فایل JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
