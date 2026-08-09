@@ -42,11 +42,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.8rem 2rem;
 }
 
 .logo {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
     color: var(--accent-gold);
     text-decoration: none;
@@ -70,6 +70,32 @@ header {
 
 .nav-links a:hover {
     color: var(--accent-gold);
+}
+
+/* لوگوی چرخشی فرفره‌ای سمت چپ */
+.spinner-logo {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: spinLeft 12s linear infinite;
+}
+
+/* انیمیشن چرخش آرام از راست به چپ (پادساعت‌گرد) */
+@keyframes spinLeft {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
 }
 
 /* بخش Hero (معرفی) */
@@ -123,12 +149,13 @@ header {
     text-align: center;
 }
 
+/* تصویر بدون کادر طلایی */
 .hero-image img {
     width: 100%;
     max-width: 420px;
     border-radius: 8px;
-    border: 2px solid var(--accent-gold);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* بخش کارت‌های تخصص */
