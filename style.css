@@ -1,16 +1,3 @@
-کد کامل و یکپارچه‌ی فایل **`style.css`** همراه با تمامی تغییرات قبلی (پالت رنگی شرکتی، حذف کادر طلایی دور عکس، چیدمان منوی هدر و انیمیشن چرخش سکه‌ای و معکوس عمودی لوگو در محور Y) به شرح زیر است:
-
-```css
-:root {
-    --bg-dark: #0f1115;
-    --bg-card: #181b22;
-    --accent-gold: #c5a059;
-    --accent-gold-hover: #e0b86c;
-    --text-main: #f1f1f1;
-    --text-muted: #9e9ea7;
-    --border-color: #2a2e39;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,22 +10,21 @@ html {
 
 body {
     font-family: 'Vazirmatn', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    background-color: #0f1115 !important;
+    color: #f1f1f1;
     line-height: 1.8;
 }
 
 /* ==========================================
-   ۱. هدر و چیدمان منو
+   ۱. هدر و چیدمان منو (زمینه تیره ثابت)
    ========================================== */
 header {
-    background-color: rgba(15, 17, 21, 0.95);
+    background-color: #0f1115 !important;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #2a2e39;
 }
 
 .nav-container {
@@ -53,7 +39,7 @@ header {
 .logo {
     font-size: 1.3rem;
     font-weight: 800;
-    color: var(--accent-gold);
+    color: #c5a059;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -67,18 +53,18 @@ header {
 }
 
 .nav-links a {
-    color: var(--text-main);
+    color: #f1f1f1;
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--accent-gold);
+    color: #c5a059;
 }
 
 /* ==========================================
-   ۲. انیمیشن لوگوی چرخشی سکه‌ای (حول محور Y + معکوس عمودی)
+   ۲. لوگوی چرخشی سکه‌ای (اصلاح‌حده و صاف)
    ========================================== */
 .spinner-logo {
     width: 45px;
@@ -86,7 +72,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1000px; /* ایجاد عمق سه‌بعدی */
+    perspective: 1000px;
 }
 
 .spinner-logo img {
@@ -97,13 +83,13 @@ header {
     transform-style: preserve-3d;
 }
 
-/* چرخش حول محور Y با حفظ حالت سر و ته (rotateX 180) */
+/* چرخش صاف حول محور Y بدون وارونگی */
 @keyframes flipCoin {
     0% {
-        transform: rotateX(180deg) rotateY(0deg);
+        transform: rotateY(0deg);
     }
     100% {
-        transform: rotateX(180deg) rotateY(360deg);
+        transform: rotateY(360deg);
     }
 }
 
@@ -118,6 +104,7 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    background-color: #0f1115;
 }
 
 .hero-text h1 {
@@ -129,20 +116,20 @@ header {
 
 .hero-text .subtitle {
     font-size: 1.2rem;
-    color: var(--accent-gold);
+    color: #c5a059;
     margin-bottom: 1.5rem;
     font-weight: 600;
 }
 
 .hero-text p {
-    color: var(--text-muted);
+    color: #9e9ea7;
     margin-bottom: 2rem;
     font-size: 1.05rem;
 }
 
 .btn-gold {
     display: inline-block;
-    background-color: var(--accent-gold);
+    background-color: #c5a059;
     color: #000;
     padding: 0.8rem 2rem;
     border-radius: 4px;
@@ -152,7 +139,7 @@ header {
 }
 
 .btn-gold:hover {
-    background-color: var(--accent-gold-hover);
+    background-color: #e0b86c;
     transform: translateY(-2px);
 }
 
@@ -160,7 +147,6 @@ header {
     text-align: center;
 }
 
-/* تصویر وکیل (بدون کادر طلایی) */
 .hero-image img {
     width: 100%;
     max-width: 420px;
@@ -175,7 +161,7 @@ header {
 .services {
     padding: 80px 2rem;
     background-color: #13151b;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid #2a2e39;
 }
 
 .section-title {
@@ -199,7 +185,7 @@ header {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: var(--accent-gold);
+    background-color: #c5a059;
 }
 
 .cards-grid {
@@ -211,8 +197,8 @@ header {
 }
 
 .card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
+    background-color: #181b22;
+    border: 1px solid #2a2e39;
     padding: 2.5rem 2rem;
     border-radius: 6px;
     text-align: center;
@@ -221,12 +207,12 @@ header {
 
 .card:hover {
     transform: translateY(-8px);
-    border-color: var(--accent-gold);
+    border-color: #c5a059;
 }
 
 .card-icon {
     font-size: 2.5rem;
-    color: var(--accent-gold);
+    color: #c5a059;
     margin-bottom: 1.5rem;
 }
 
@@ -237,7 +223,7 @@ header {
 }
 
 .card p {
-    color: var(--text-muted);
+    color: #9e9ea7;
     font-size: 0.95rem;
 }
 
@@ -248,21 +234,22 @@ header {
     padding: 80px 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #0f1115;
 }
 
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    background-color: var(--bg-card);
+    background-color: #181b22;
     padding: 3rem;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #2a2e39;
 }
 
 .contact-info h3 {
     font-size: 1.5rem;
-    color: var(--accent-gold);
+    color: #c5a059;
     margin-bottom: 1.5rem;
 }
 
@@ -271,11 +258,11 @@ header {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.2rem;
-    color: var(--text-muted);
+    color: #9e9ea7;
 }
 
 .info-item i {
-    color: var(--accent-gold);
+    color: #c5a059;
     font-size: 1.2rem;
     width: 25px;
 }
@@ -289,8 +276,8 @@ header {
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 0.9rem;
-    background-color: var(--bg-dark);
-    border: 1px solid var(--border-color);
+    background-color: #0f1115;
+    border: 1px solid #2a2e39;
     border-radius: 4px;
     color: #fff;
     font-family: inherit;
@@ -298,7 +285,7 @@ header {
 
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
-    border-color: var(--accent-gold);
+    border-color: #c5a059;
 }
 
 .form-btn {
@@ -320,13 +307,13 @@ footer {
     background-color: #090a0c;
     text-align: center;
     padding: 2rem;
-    color: var(--text-muted);
+    color: #9e9ea7;
     font-size: 0.9rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid #2a2e39;
 }
 
 /* ==========================================
-   ۷. نسخه موبایل (Responsive)
+   ۷. نسخه موبایل
    ========================================== */
 @media (max-width: 768px) {
     .nav-links {
@@ -347,5 +334,3 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-
-```
