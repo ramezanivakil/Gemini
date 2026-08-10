@@ -64,11 +64,11 @@ header {
 }
 
 /* ==========================================
-   ۲. لوگوی چرخشی سکه‌ای
+   ۲. لوگوی چرخشی سکه‌ای (۵۰٪ بزرگتر شده)
    ========================================== */
 .spinner-logo {
-    width: 130px;
-    height: 130px;
+    width: 195px; /* ۵۰ درصد بزرگتر از 130px */
+    height: 195px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,16 +95,16 @@ header {
 }
 
 /* ==========================================
-   ۳. بخش معرفی اصلی (Hero - چیدمان ۳ ستونه دسکتاپ)
+   ۳. بخش معرفی اصلی (Hero - ارتفاع کم‌شده و عکس/لوگو بزرگتر)
    ========================================== */
 .hero {
-    padding: 160px 2rem 100px;
-    max-width: 1200px;
+    padding: 110px 2rem 70px; /* کاهش پدینگ برای کم کردن ۳۰٪ ارتفاع هیرو */
+    max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    /* ۳ ستون به ترتیب از راست: ۱. لوگو ۲. نوشته‌ها ۳. عکس */
-    grid-template-columns: 160px 1fr 380px;
-    gap: 2.5rem;
+    /* ۳ ستون به ترتیب از راست: ۱. لوگو ۲. نوشته‌ها ۳. عکس (عکس ۵۰٪ بزرگتر شده) */
+    grid-template-columns: 210px 1fr 570px;
+    gap: 2rem;
     align-items: center;
     background-color: #0f1115;
 }
@@ -119,13 +119,13 @@ header {
 .hero-text .subtitle {
     font-size: 1.2rem;
     color: #c5a059;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     font-weight: 600;
 }
 
 .hero-text p {
     color: #9e9ea7;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-size: 1.05rem;
 }
 
@@ -151,7 +151,7 @@ header {
 
 .hero-image img {
     width: 100%;
-    max-width: 380px;
+    max-width: 570px; /* ۵۰ درصد بزرگتر از 380px */
     border-radius: 8px;
     border: none;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
@@ -317,7 +317,7 @@ footer {
 /* ==========================================
    ۷. نسخه موبایل (ترتیب: ۱.عکس -> ۲.متن -> ۳.لوگو)
    ========================================== */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .nav-links {
         display: none;
     }
@@ -326,7 +326,7 @@ footer {
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 120px;
+        padding-top: 100px;
         gap: 2rem;
     }
 
