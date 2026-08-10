@@ -84,7 +84,7 @@ header {
     transform-style: preserve-3d;
 }
 
-/* چرخش حول محور Y */
+/* چرخش صاف حول محور Y */
 @keyframes flipCoin {
     0% {
         transform: rotateY(0deg);
@@ -315,7 +315,7 @@ footer {
 }
 
 /* ==========================================
-   ۷. نسخه موبایل (ترتیب معکوس: ۱. لوگو -> ۲. متن -> ۳. عکس)
+   ۷. نسخه موبایل (ترتیب: ۱.عکس -> ۲.متن -> ۳.لوگو)
    ========================================== */
 @media (max-width: 768px) {
     .nav-links {
@@ -323,24 +323,25 @@ footer {
     }
 
     .hero {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         text-align: center;
         padding-top: 120px;
         gap: 2rem;
     }
 
-    /* ترتیب چیدمان عمودی در موبایل */
-    .spinner-logo {
-        order: 1; /* اول: لوگوی چرخشی */
-        margin-bottom: 1rem;
+    /* ترتیب دقیق چیدمان عمودی در موبایل */
+    .hero .image-order {
+        order: 1; /* اول: عکس */
     }
 
-    .hero-text {
-        order: 2; /* دوم: متن‌ها */
+    .hero .text-order {
+        order: 2; /* دوم: متن */
     }
 
-    .hero-image {
-        order: 3; /* سوم: عکس */
+    .hero .logo-order {
+        order: 3; /* سوم: لوگو */
+        margin-top: 0.5rem;
     }
 
     .hero-text h1 {
