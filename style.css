@@ -84,7 +84,6 @@ header {
     transform-style: preserve-3d;
 }
 
-/* چرخش صاف حول محور Y */
 @keyframes flipCoin {
     0% {
         transform: rotateY(0deg);
@@ -95,14 +94,13 @@ header {
 }
 
 /* ==========================================
-   ۳. بخش معرفی اصلی (Hero - فواصل بیشتر در دسکتاپ)
+   ۳. بخش معرفی اصلی (Hero - ۳۰٪ ارتفاع کمتر)
    ========================================== */
 .hero {
-    padding: 110px 2rem 70px;
-    max-width: 1400px; /* تعریض کانتینر برای ایجاد فضای بیشتر */
+    padding: 75px 2rem 45px; /* کاهش پدینگ برای کم شدن ۳۰٪ ارتفاع هیرو */
+    max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    /* تنظیم ستون‌ها و افزایش فاصله بین آن‌ها به 5rem (حدود ۸۰ پیکسل) */
     grid-template-columns: 200px 1fr 520px;
     gap: 5rem; 
     align-items: center;
@@ -149,23 +147,18 @@ header {
     text-align: center;
 }
 
-/* عکس برجسته بدون کادر (Border) */
 .hero-image img {
     width: 100%;
     max-width: 520px;
     border-radius: 12px;
-    border: none; /* حذف کامل کادر دور عکس */
-    
-    /* سایه عمیق چندلایه برای برجستگی سه‌بعدی */
+    border: none;
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.8),
         0 8px 20px rgba(0, 0, 0, 0.6),
         0 0 25px rgba(197, 160, 89, 0.15);
-
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* افکت شناور شدن عکس هنگام هوور */
 .hero-image img:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 
@@ -343,11 +336,10 @@ footer {
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 100px;
+        padding-top: 90px;
         gap: 2rem;
     }
 
-    /* ترتیب چیدمان عمودی در موبایل */
     .hero .image-order {
         order: 1; /* اول: عکس */
     }
