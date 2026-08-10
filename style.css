@@ -64,15 +64,16 @@ header {
 }
 
 /* ==========================================
-   ۲. لوگوی چرخشی سکه‌ای (اصلاح‌حده و صاف)
+   ۲. لوگوی چرخشی سکه‌ای (بزرگ‌تر شده برای هدر اصلی)
    ========================================== */
 .spinner-logo {
-    width: 45px;
-    height: 45px;
+    width: 130px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
     perspective: 1000px;
+    margin: 0 auto;
 }
 
 .spinner-logo img {
@@ -83,7 +84,7 @@ header {
     transform-style: preserve-3d;
 }
 
-/* چرخش صاف حول محور Y بدون وارونگی */
+/* چرخش صاف حول محور Y */
 @keyframes flipCoin {
     0% {
         transform: rotateY(0deg);
@@ -94,15 +95,16 @@ header {
 }
 
 /* ==========================================
-   ۳. بخش معرفی اصلی (Hero)
+   ۳. بخش معرفی اصلی (Hero - چیدمان ۳ ستونه)
    ========================================== */
 .hero {
     padding: 160px 2rem 100px;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    /* ۳ ستون: لوگو (راست)، نوشته‌ها (وسط)، عکس (چپ) */
+    grid-template-columns: 160px 1fr 380px;
+    gap: 2.5rem;
     align-items: center;
     background-color: #0f1115;
 }
@@ -149,7 +151,7 @@ header {
 
 .hero-image img {
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     border-radius: 8px;
     border: none;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
