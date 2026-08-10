@@ -28,7 +28,7 @@ header {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -64,10 +64,10 @@ header {
 }
 
 /* ==========================================
-   ۲. لوگوی چرخشی سکه‌ای (۵۰٪ بزرگتر شده)
+   ۲. لوگوی چرخشی سکه‌ای
    ========================================== */
 .spinner-logo {
-    width: 195px; /* ۵۰ درصد بزرگتر از 130px */
+    width: 195px;
     height: 195px;
     display: flex;
     align-items: center;
@@ -95,16 +95,16 @@ header {
 }
 
 /* ==========================================
-   ۳. بخش معرفی اصلی (Hero - ارتفاع کم‌شده و عکس/لوگو بزرگتر)
+   ۳. بخش معرفی اصلی (Hero - فواصل بیشتر در دسکتاپ)
    ========================================== */
 .hero {
-    padding: 110px 2rem 70px; /* کاهش پدینگ برای کم کردن ۳۰٪ ارتفاع هیرو */
-    max-width: 1300px;
+    padding: 110px 2rem 70px;
+    max-width: 1400px; /* تعریض کانتینر برای ایجاد فضای بیشتر */
     margin: 0 auto;
     display: grid;
-    /* ۳ ستون به ترتیب از راست: ۱. لوگو ۲. نوشته‌ها ۳. عکس (عکس ۵۰٪ بزرگتر شده) */
-    grid-template-columns: 210px 1fr 570px;
-    gap: 2rem;
+    /* تنظیم ستون‌ها و افزایش فاصله بین آن‌ها به 5rem (حدود ۸۰ پیکسل) */
+    grid-template-columns: 200px 1fr 520px;
+    gap: 5rem; 
     align-items: center;
     background-color: #0f1115;
 }
@@ -145,31 +145,33 @@ header {
     transform: translateY(-2px);
 }
 
+.hero-image {
+    text-align: center;
+}
+
+/* عکس برجسته بدون کادر (Border) */
 .hero-image img {
     width: 100%;
-    max-width: 570px;
+    max-width: 520px;
     border-radius: 12px;
+    border: none; /* حذف کامل کادر دور عکس */
     
-    /* ۱. کادر ظریف طلایی برای تمیزتر شدن حاشیه‌ها */
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    
-    /* ۲. سایه عمیق چندلایه برای ایجاد حس برجستگی و عمق سه‌بعدی */
+    /* سایه عمیق چندلایه برای برجستگی سه‌بعدی */
     box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.7),
-        0 5px 15px rgba(0, 0, 0, 0.5),
-        0 0 20px rgba(197, 160, 89, 0.15); /* هاله بسـیار ملایم طلایی */
+        0 20px 40px rgba(0, 0, 0, 0.8),
+        0 8px 20px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(197, 160, 89, 0.15);
 
-    /* ۳. انیمیشن نرم برای حالت هوور */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* افکت شناور شدن با بردن ماوس روی عکس */
+/* افکت شناور شدن عکس هنگام هوور */
 .hero-image img:hover {
-    transform: translateY(-8px) scale(1.02); /* کمی بالا آمدن و بزرگتر شدن */
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.8),
-        0 10px 20px rgba(0, 0, 0, 0.6),
-        0 0 30px rgba(197, 160, 89, 0.3); /* پررنگ‌تر شدن هاله طلایی */
+        0 30px 60px rgba(0, 0, 0, 0.9),
+        0 12px 25px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(197, 160, 89, 0.3);
 }
 
 /* ==========================================
@@ -345,7 +347,7 @@ footer {
         gap: 2rem;
     }
 
-    /* ترتیب دقیق چیدمان عمودی در موبایل */
+    /* ترتیب چیدمان عمودی در موبایل */
     .hero .image-order {
         order: 1; /* اول: عکس */
     }
