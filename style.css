@@ -145,16 +145,31 @@ header {
     transform: translateY(-2px);
 }
 
-.hero-image {
-    text-align: center;
-}
-
 .hero-image img {
     width: 100%;
-    max-width: 570px; /* ۵۰ درصد بزرگتر از 380px */
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    max-width: 570px;
+    border-radius: 12px;
+    
+    /* ۱. کادر ظریف طلایی برای تمیزتر شدن حاشیه‌ها */
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    
+    /* ۲. سایه عمیق چندلایه برای ایجاد حس برجستگی و عمق سه‌بعدی */
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.7),
+        0 5px 15px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(197, 160, 89, 0.15); /* هاله بسـیار ملایم طلایی */
+
+    /* ۳. انیمیشن نرم برای حالت هوور */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* افکت شناور شدن با بردن ماوس روی عکس */
+.hero-image img:hover {
+    transform: translateY(-8px) scale(1.02); /* کمی بالا آمدن و بزرگتر شدن */
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.8),
+        0 10px 20px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(197, 160, 89, 0.3); /* پررنگ‌تر شدن هاله طلایی */
 }
 
 /* ==========================================
