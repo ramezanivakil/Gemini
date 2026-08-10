@@ -83,13 +83,33 @@ header {
     perspective: 1000px;
 }
 
+/* لوگو به عنوان سکه با چرخش ۱۸۰ درجه */
+.spinner-logo {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
 .spinner-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* اعمال انیمیشن چرخش حول محور Y */
+    /* انیمیشن چرخش سکه‌ای حول محور Y */
     animation: flipCoin 4s linear infinite;
     transform-style: preserve-3d;
+}
+
+/* انیمیشن چرخش سکه‌ای با ۱۸۰ درجه چرخش عمودی (سر و ته) */
+@keyframes flipCoin {
+    0% {
+        transform: rotateX(180deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(180deg) rotateY(360deg);
+    }
 }
 
 /* انیمیشن چرخش سه‌بعدی سکه‌ای حول محور Y */
