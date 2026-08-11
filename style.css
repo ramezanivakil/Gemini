@@ -32,8 +32,8 @@
 /* ۲. فونت بخش‌ها و متن‌های طلایی (Comps) */
 @font-face {
     font-family: 'CustomComps';
-    src: url('fonts/comps.woff2') format('woff2'),
-         url('fonts/comps.ttf') format('truetype');
+    src: url('fonts/titr.woff2') format('woff2'),
+         url('fonts/titr.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
