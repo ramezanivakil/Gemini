@@ -1,3 +1,54 @@
+/* ==========================================
+   ۰. تعریف متغیرهای فونت و اندازه‌ها
+   ========================================== */
+:root {
+    /* نام فونت‌ها */
+    --font-heading: 'CustomTitr', sans-serif;
+    --font-accent: 'CustomComps', sans-serif;
+    --font-body: 'CustomZar', sans-serif;
+
+    /* متغیرهای اندازه فونت (امکان تغییر راحت سایزها) */
+    --fs-h1: 2.8rem;          /* سایز عنوان اصلی (نام وکیل) */
+    --fs-h2: 2.0rem;          /* سایز عناوین بخش‌ها */
+    --fs-h3: 1.3rem;          /* سایز کارت‌ها و تیترهای فرعی */
+    --fs-subtitle: 1.2rem;    /* سایز زیرعنوان طلایی */
+    --fs-body: 1.05rem;       /* سایز متن‌های بدنه */
+    --fs-nav: 0.95rem;        /* سایز منو */
+}
+
+/* ==========================================
+   تعریف فونت‌های سفارشی از پوشه fonts
+   ========================================== */
+@font-face {
+    font-family: 'CustomTitr';
+    src: url('fonts/titr.woff2') format('woff2'),
+         url('fonts/titr.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CustomComps';
+    src: url('fonts/comps.woff2') format('woff2'),
+         url('fonts/comps.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CustomZar';
+    src: url('fonts/zar.woff2') format('woff2'),
+         url('fonts/zar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================
+   تنظیمات عمومی
+   ========================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,14 +60,31 @@ html {
 }
 
 body {
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
     background-color: #0f1115 !important;
     color: #f1f1f1;
     line-height: 1.8;
 }
 
+/* اعمال فونت تیتر به تمام عناوین H1 تا H6 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+/* اعمال فونت comps به تمامی عناصر با رنگ طلایی */
+.subtitle,
+.logo,
+.nav-links a:hover,
+.card-icon,
+.contact-info h3,
+.info-item i,
+.btn-gold {
+    font-family: var(--font-accent);
+}
+
 /* ==========================================
-   ۱. هدر و چیدمان منو (زمینه تیره ثابت)
+   ۱. هدر و چیدمان منو
    ========================================== */
 header {
     background-color: #0f1115 !important;
@@ -55,7 +123,8 @@ header {
 .nav-links a {
     color: #f1f1f1;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: var(--fs-nav);
+    font-family: var(--font-body);
     transition: color 0.3s;
 }
 
@@ -94,10 +163,10 @@ header {
 }
 
 /* ==========================================
-   ۳. بخش معرفی اصلی (Hero - ۳۰٪ ارتفاع کمتر)
+   ۳. بخش معرفی اصلی (Hero)
    ========================================== */
 .hero {
-    padding: 75px 2rem 45px; /* کاهش پدینگ برای کم شدن ۳۰٪ ارتفاع هیرو */
+    padding: 75px 2rem 45px;
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
@@ -108,14 +177,14 @@ header {
 }
 
 .hero-text h1 {
-    font-size: 2.8rem;
+    font-size: var(--fs-h1);
     font-weight: 800;
     margin-bottom: 0.5rem;
     color: #ffffff;
 }
 
 .hero-text .subtitle {
-    font-size: 1.2rem;
+    font-size: var(--fs-subtitle);
     color: #c5a059;
     margin-bottom: 1.2rem;
     font-weight: 600;
@@ -124,7 +193,7 @@ header {
 .hero-text p {
     color: #9e9ea7;
     margin-bottom: 1.5rem;
-    font-size: 1.05rem;
+    font-size: var(--fs-body);
 }
 
 .btn-gold {
@@ -182,7 +251,7 @@ header {
 }
 
 .section-title h2 {
-    font-size: 2rem;
+    font-size: var(--fs-h2);
     color: #ffffff;
     position: relative;
     display: inline-block;
@@ -229,14 +298,14 @@ header {
 }
 
 .card h3 {
-    font-size: 1.3rem;
+    font-size: var(--fs-h3);
     margin-bottom: 1rem;
     color: #fff;
 }
 
 .card p {
     color: #9e9ea7;
-    font-size: 0.95rem;
+    font-size: var(--fs-body);
 }
 
 /* ==========================================
@@ -260,7 +329,7 @@ header {
 }
 
 .contact-info h3 {
-    font-size: 1.5rem;
+    font-size: var(--fs-h3);
     color: #c5a059;
     margin-bottom: 1.5rem;
 }
@@ -271,6 +340,7 @@ header {
     gap: 1rem;
     margin-bottom: 1.2rem;
     color: #9e9ea7;
+    font-size: var(--fs-body);
 }
 
 .info-item i {
@@ -292,7 +362,8 @@ header {
     border: 1px solid #2a2e39;
     border-radius: 4px;
     color: #fff;
-    font-family: inherit;
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -308,7 +379,7 @@ header {
 
 .form-status {
     margin-top: 1rem;
-    font-size: 0.95rem;
+    font-size: var(--fs-body);
     text-align: center;
 }
 
@@ -320,7 +391,7 @@ footer {
     text-align: center;
     padding: 2rem;
     color: #9e9ea7;
-    font-size: 0.9rem;
+    font-size: var(--fs-nav);
     border-top: 1px solid #2a2e39;
 }
 
@@ -341,20 +412,20 @@ footer {
     }
 
     .hero .image-order {
-        order: 1; /* اول: عکس */
+        order: 1;
     }
 
     .hero .text-order {
-        order: 2; /* دوم: متن */
+        order: 2;
     }
 
     .hero .logo-order {
-        order: 3; /* سوم: لوگو */
+        order: 3;
         margin-top: 0.5rem;
     }
 
     .hero-text h1 {
-        font-size: 2.2rem;
+        font-size: calc(var(--fs-h1) * 0.8);
     }
 
     .contact-container {
