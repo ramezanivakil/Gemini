@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دفتر وکالت و مشاوره حقوقی</title>
+    <title>دفتر وکالت و مشاوره حقوقی | وکیل پایه یک دادگستری</title>
+    <!-- آیکون‌های FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- فایل استایل CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome برای آیکون‌ها -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-family/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- هدر و منوی بالای سایت -->
+    <!-- نوار منوی بالای صفحه -->
     <header>
         <div class="nav-container">
             <a href="#" class="logo">
                 <i class="fa-solid fa-scale-balanced"></i>
                 <span>دفتر وکالت و مشاوره حقوقی</span>
             </a>
-            
+
             <ul class="nav-links">
-                <li><a href="#hero">صفحه اصلی</a></li>
+                <li><a href="#hero">خانه</a></li>
                 <li><a href="#services">حوزه‌های تخصصی</a></li>
                 <li><a href="#contact">تماس با ما</a></li>
             </ul>
@@ -30,25 +31,25 @@
 
     <!-- بخش معرفی اصلی (Hero) -->
     <section class="hero" id="hero">
-        
-        <!-- ۱. لوگوی چرخشی سکه‌ای -->
+        <!-- ۱. لوگوی چرخشی -->
         <div class="spinner-logo logo-order">
-            <img src="https://cdn-icons-png.flaticon.com/512/1041/1041886.png" alt="لوگو وکالت">
+            <img src="images/logo.png" alt="لوگوی دفتر وکالت">
         </div>
 
-        <!-- ۲. متن معرفی -->
+        <!-- ۲. نوشته‌های معرفی -->
         <div class="hero-text text-order">
             <h1>وکیل پایه یک دادگستری</h1>
             <div class="subtitle">مشاور حقوقی دعاوی تخصصی، شرکت‌ها و امور ثبتی</div>
-            <p>ارائه خدمات تخصصی وکالت، قبول دعاوی حقوقی، کیفری، خانواده و امور ثبتی با تکیه بر دانش حقوقی روز و تجربه درخشان پرونده‌های موفق.</p>
-            <a href="#contact" class="btn-gold">درخواست مشاوره حقوقی</a>
+            <p>
+                ارائه خدمات جامع مشاوره حقوقی، تنظیم قراردادهای پیچیده تجاری، و وکالت تخصصی در دعاوی ملکی، کیفری، خانواده و امور ثبتی با بیش از ۱۵ سال سابقه موثر.
+            </p>
+            <a href="#contact" class="btn-gold">درخواست مشاوره تخصصی</a>
         </div>
 
-        <!-- ۳. تصویر اصلی -->
+        <!-- ۳. تصویر وکیل -->
         <div class="hero-image image-order">
-            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="وکالت و مشاوره حقوقی">
+            <img src="images/profile.png" alt="تصویر وکیل پایه یک">
         </div>
-
     </section>
 
     <!-- بخش کارت‌های تخصص (۶ کارت تصویری) -->
@@ -133,13 +134,12 @@
         <div class="section-title">
             <h2>تماس و دریافت مشاوره</h2>
         </div>
-
         <div class="contact-container">
             <div class="contact-info">
                 <h3>اطلاعات دفتر وکالت</h3>
                 <div class="info-item">
                     <i class="fa-solid fa-location-dot"></i>
-                    <span>تهران، خیابان ولیعصر، نرسیده به میدان ونک، مجتمع تجاری و اداری، طبقه ۴</span>
+                    <span>تهران، خیابان ولیعصر، نرسیده به میدان ونک، مجتمع اداری ...، واحد ...</span>
                 </div>
                 <div class="info-item">
                     <i class="fa-solid fa-phone"></i>
@@ -151,24 +151,24 @@
                 </div>
                 <div class="info-item">
                     <i class="fa-solid fa-clock"></i>
-                    <span>شنبه تا چهارشنبه: ساعت ۱۶:۰۰ الی ۲۰:۰۰</span>
+                    <span>شنبه تا چهارشنبه: ساعت ۱۶:۰۰ الی ۲۰:۰۰ (با تعیین وقت قبلی)</span>
                 </div>
             </div>
 
             <div class="contact-form">
                 <form id="consultationForm">
                     <div class="form-group">
-                        <input type="text" placeholder="نام و نام خانوادگی" required>
+                        <input type="text" id="name" placeholder="نام و نام خانوادگی" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" placeholder="شماره تماس" required>
+                        <input type="tel" id="phone" placeholder="شماره تماس" required>
                     </div>
                     <div class="form-group">
-                        <textarea rows="4" placeholder="شرح کوتاه موضوع حقوقی شما..." required></textarea>
+                        <textarea id="message" rows="4" placeholder="شرح کوتاه موضوع حقوقی شما..." required></textarea>
                     </div>
                     <button type="submit" class="btn-gold form-btn">ارسال درخواست مشاوره</button>
-                    <div class="form-status" id="formStatus"></div>
                 </form>
+                <div id="formStatus" class="form-status"></div>
             </div>
         </div>
     </section>
