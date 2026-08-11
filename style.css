@@ -83,7 +83,6 @@ h1, h2, h3, h4, h5, h6 {
 .subtitle,
 .logo,
 .nav-links a:hover,
-.card-icon,
 .contact-info h3,
 .info-item i,
 .btn-gold {
@@ -91,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   ۶. هدر و منوی بالای سایت (فونت Zar)
+   ۶. هدر و منوی بالای سایت
    ========================================== */
 header {
     background-color: #0f1115 !important;
@@ -130,13 +129,18 @@ header {
 .nav-links a {
     color: #f1f1f1;
     text-decoration: none;
-    font-size: var(--fs-nav);     /* سایز فونت لینک‌های منو */
-    font-family: var(--font-body); /* استفاده از فونت Zar */
+    font-size: var(--fs-nav);     /* سایز لینک‌های منو */
+    font-family: var(--font-body); /* فونت Zar */
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
     color: #c5a059;
+}
+
+.nav-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: var(--fs-nav);
 }
 
 /* ==========================================
@@ -173,12 +177,12 @@ header {
    ۸. بخش معرفی اصلی (Hero)
    ========================================== */
 .hero {
-    padding: 75px 2rem 45px;
+    padding: 120px 2rem 60px;
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 200px 1fr 520px;
-    gap: 5rem; 
+    gap: 4rem; 
     align-items: center;
     background-color: #0f1115;
 }
@@ -245,7 +249,7 @@ header {
 }
 
 /* ==========================================
-   ۹. بخش کارت‌های تخصص (Services)
+   ۹. بخش کارت‌های تخصص (تصویر در بالا، متن در پایین)
    ========================================== */
 .services {
     padding: 80px 2rem;
@@ -255,11 +259,12 @@ header {
 
 .section-title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .section-title h2 {
-    font-size: var(--fs-h2); /* سایز تیتر بخش‌ها با فونت Titr */
+    font-size: var(--fs-h2);
+    font-family: var(--font-heading); /* فونت Titr */
     color: #ffffff;
     position: relative;
     display: inline-block;
@@ -278,42 +283,69 @@ header {
 }
 
 .cards-grid {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
 }
 
 .card {
     background-color: #181b22;
     border: 1px solid #2a2e39;
-    padding: 2.5rem 2rem;
-    border-radius: 6px;
-    text-align: center;
-    transition: transform 0.3s, border-color 0.3s;
+    border-radius: 10px;
+    overflow: hidden; /* جلوگیری از بیرون‌زدگی تصویر */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-8px);
     border-color: #c5a059;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(197, 160, 89, 0.2);
 }
 
-.card-icon {
-    font-size: 2.5rem;
-    color: #c5a059;
-    margin-bottom: 1.5rem;
+/* تصویر بالای کارت */
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
 }
 
-.card h3 {
-    font-size: var(--fs-h3); /* سایز عنوان کارت با فونت Titr */
-    margin-bottom: 1rem;
-    color: #fff;
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.card p {
-    color: #9e9ea7;
-    font-size: var(--fs-body); /* سایز توضیحات کارت با فونت Zar */
+.card:hover .card-image img {
+    transform: scale(1.08); /* افکت زوم نرم هنگام هاور */
+}
+
+/* متن پایین کارت */
+.card-content {
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.card-content h3 {
+    font-size: var(--fs-h3);
+    font-family: var(--font-heading); /* فونت Titr */
+    color: #c5a059; /* رنگ طلایی عنوان کارت */
+    margin-bottom: 0.8rem;
+}
+
+.card-content p {
+    color: #a0a5b1;
+    font-family: var(--font-body); /* فونت Zar */
+    font-size: var(--fs-body);
+    line-height: 1.8;
 }
 
 /* ==========================================
@@ -410,7 +442,7 @@ footer {
    ۱۲. تنظیمات واکنش‌گرا (Responsive / موبایل)
    ========================================== */
 @media (max-width: 992px) {
-    .nav-links {
+    .nav-links, .nav-btn {
         display: none;
     }
 
@@ -418,7 +450,7 @@ footer {
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 90px;
+        padding-top: 100px;
         gap: 2rem;
     }
 
