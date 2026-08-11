@@ -2,7 +2,7 @@
    ۱. تعریف متغیرها (فونت‌ها و سایزها)
    ========================================== */
 :root {
-    /* نام فونت‌ها */
+    /* نگاشت نام فونت‌های سفارشی محلی */
     --font-heading: 'CustomTitr', sans-serif; /* فونت تیترها */
     --font-accent: 'CustomComps', sans-serif;  /* فونت عناصر طلایی */
     --font-body: 'CustomZar', sans-serif;     /* فونت متن اصلی */
@@ -32,8 +32,8 @@
 /* ۲. فونت بخش‌ها و متن‌های طلایی (Comps) */
 @font-face {
     font-family: 'CustomComps';
-    src: url('fonts/titr.woff2') format('woff2'),
-         url('fonts/titr.ttf') format('truetype');
+    src: url('fonts/comps.woff2') format('woff2'),
+         url('fonts/comps.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -82,7 +82,6 @@ h1, h2, h3, h4, h5, h6 {
    ========================================== */
 .subtitle,
 .logo,
-.nav-links a:hover,
 .contact-info h3,
 .info-item i,
 .btn-gold {
@@ -90,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   ۶. هدر و منوی بالای سایت
+   ۶. هدر و منوی بالای سایت (فونت Zar)
    ========================================== */
 header {
     background-color: #0f1115 !important;
@@ -159,7 +158,10 @@ header {
 .spinner-logo img {
     width: 100%;
     height: 100%;
+    max-width: 195px;
+    max-height: 195px;
     object-fit: contain;
+    display: block;
     animation: flipCoin 4s linear infinite;
     transform-style: preserve-3d;
 }
@@ -174,15 +176,15 @@ header {
 }
 
 /* ==========================================
-   ۸. بخش معرفی اصلی (Hero)
+   ۸. بخش معرفی اصلی (Hero - ارتفاع کم‌تر و فواصل بیشتر)
    ========================================== */
 .hero {
-    padding: 120px 2rem 60px;
+    padding: 75px 2rem 45px;
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 200px 1fr 520px;
-    gap: 4rem; 
+    gap: 5rem; 
     align-items: center;
     background-color: #0f1115;
 }
@@ -226,17 +228,23 @@ header {
 
 .hero-image {
     text-align: center;
+    width: 100%;
 }
 
 .hero-image img {
     width: 100%;
     max-width: 520px;
+    height: auto;
+    display: block;
     border-radius: 12px;
-    border: none;
+    border: none; /* حذف کادر دور عکس */
+    
+    /* سایه عمیق چندلایه برای برجستگی سه‌بعدی */
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.8),
         0 8px 20px rgba(0, 0, 0, 0.6),
         0 0 25px rgba(197, 160, 89, 0.15);
+        
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -450,25 +458,26 @@ footer {
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 100px;
+        padding-top: 90px;
         gap: 2rem;
     }
 
+    /* ترتیب دقیق چیدمان عمودی در موبایل: ۱. عکس -> ۲. متن -> ۳. لوگو */
     .hero .image-order {
-        order: 1;
+        order: 1; /* اول: عکس */
     }
 
     .hero .text-order {
-        order: 2;
+        order: 2; /* دوم: متن */
     }
 
     .hero .logo-order {
-        order: 3;
+        order: 3; /* سوم: لوگو */
         margin-top: 0.5rem;
     }
 
     .hero-text h1 {
-        font-size: calc(var(--fs-h1) * 0.8); /* کاهش متناسب سایز تیتر در موبایل */
+        font-size: calc(var(--fs-h1) * 0.8);
     }
 
     .contact-container {
