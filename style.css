@@ -1,24 +1,25 @@
 /* ==========================================
-   ۰. تعریف متغیرهای فونت و اندازه‌ها
+   ۱. تعریف متغیرها (فونت‌ها و سایزها)
    ========================================== */
 :root {
     /* نام فونت‌ها */
-    --font-heading: 'CustomTitr', sans-serif;
-    --font-accent: 'CustomComps', sans-serif;
-    --font-body: 'CustomZar', sans-serif;
+    --font-heading: 'CustomTitr', sans-serif; /* فونت تیترها */
+    --font-accent: 'CustomComps', sans-serif;  /* فونت عناصر طلایی */
+    --font-body: 'CustomZar', sans-serif;     /* فونت متن اصلی */
 
-    /* متغیرهای اندازه فونت (امکان تغییر راحت سایزها) */
+    /* متغیرهای اندازه فونت (قابلیت تغییر سایز آسان) */
     --fs-h1: 2.8rem;          /* سایز عنوان اصلی (نام وکیل) */
-    --fs-h2: 2.0rem;          /* سایز عناوین بخش‌ها */
-    --fs-h3: 1.3rem;          /* سایز کارت‌ها و تیترهای فرعی */
+    --fs-h2: 2.0rem;          /* سایز عناوین اصلی بخش‌ها */
+    --fs-h3: 1.3rem;          /* سایز تیتر کارت‌ها و عناوین فرعی */
     --fs-subtitle: 1.2rem;    /* سایز زیرعنوان طلایی */
-    --fs-body: 1.05rem;       /* سایز متن‌های بدنه */
-    --fs-nav: 0.95rem;        /* سایز منو */
+    --fs-body: 1.05rem;       /* سایز متن‌های عمومی و بدنه */
+    --fs-nav: 0.95rem;        /* سایز منو و فوتر */
 }
 
 /* ==========================================
-   تعریف فونت‌های سفارشی از پوشه fonts
+   ۲. تعریف فونت‌های سفارشی از پوشه fonts
    ========================================== */
+/* ۱. فونت عناوین و تیترها (Titr) */
 @font-face {
     font-family: 'CustomTitr';
     src: url('fonts/titr.woff2') format('woff2'),
@@ -28,6 +29,7 @@
     font-display: swap;
 }
 
+/* ۲. فونت بخش‌ها و متن‌های طلایی (Comps) */
 @font-face {
     font-family: 'CustomComps';
     src: url('fonts/comps.woff2') format('woff2'),
@@ -37,6 +39,7 @@
     font-display: swap;
 }
 
+/* ۳. فونت متن اصلی سایت (Zar) */
 @font-face {
     font-family: 'CustomZar';
     src: url('fonts/zar.woff2') format('woff2'),
@@ -47,7 +50,7 @@
 }
 
 /* ==========================================
-   تنظیمات عمومی
+   ۳. تنظیمات عمومی و بدنه (فونت Zar)
    ========================================== */
 * {
     box-sizing: border-box;
@@ -60,19 +63,23 @@ html {
 }
 
 body {
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
+    font-family: var(--font-body); /* استفاده از فونت Zar */
+    font-size: var(--fs-body);    /* سایز متن بدنه */
     background-color: #0f1115 !important;
     color: #f1f1f1;
     line-height: 1.8;
 }
 
-/* اعمال فونت تیتر به تمام عناوین H1 تا H6 */
+/* ==========================================
+   ۴. تخصیص فونت تیترها (فونت Titr)
+   ========================================== */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading); /* استفاده از فونت Titr */
 }
 
-/* اعمال فونت comps به تمامی عناصر با رنگ طلایی */
+/* ==========================================
+   ۵. تخصیص فونت عناصر طلایی (فونت Comps)
+   ========================================== */
 .subtitle,
 .logo,
 .nav-links a:hover,
@@ -80,11 +87,11 @@ h1, h2, h3, h4, h5, h6 {
 .contact-info h3,
 .info-item i,
 .btn-gold {
-    font-family: var(--font-accent);
+    font-family: var(--font-accent); /* استفاده از فونت Comps */
 }
 
 /* ==========================================
-   ۱. هدر و چیدمان منو
+   ۶. هدر و منوی بالای سایت (فونت Zar)
    ========================================== */
 header {
     background-color: #0f1115 !important;
@@ -123,8 +130,8 @@ header {
 .nav-links a {
     color: #f1f1f1;
     text-decoration: none;
-    font-size: var(--fs-nav);
-    font-family: var(--font-body);
+    font-size: var(--fs-nav);     /* سایز فونت لینک‌های منو */
+    font-family: var(--font-body); /* استفاده از فونت Zar */
     transition: color 0.3s;
 }
 
@@ -133,7 +140,7 @@ header {
 }
 
 /* ==========================================
-   ۲. لوگوی چرخشی سکه‌ای
+   ۷. لوگوی چرخشی سکه‌ای
    ========================================== */
 .spinner-logo {
     width: 195px;
@@ -163,7 +170,7 @@ header {
 }
 
 /* ==========================================
-   ۳. بخش معرفی اصلی (Hero)
+   ۸. بخش معرفی اصلی (Hero)
    ========================================== */
 .hero {
     padding: 75px 2rem 45px;
@@ -177,14 +184,14 @@ header {
 }
 
 .hero-text h1 {
-    font-size: var(--fs-h1);
+    font-size: var(--fs-h1); /* سایز عنوان اصلی با فونت Titr */
     font-weight: 800;
     margin-bottom: 0.5rem;
     color: #ffffff;
 }
 
 .hero-text .subtitle {
-    font-size: var(--fs-subtitle);
+    font-size: var(--fs-subtitle); /* سایز زیرعنوان با فونت Comps */
     color: #c5a059;
     margin-bottom: 1.2rem;
     font-weight: 600;
@@ -193,7 +200,7 @@ header {
 .hero-text p {
     color: #9e9ea7;
     margin-bottom: 1.5rem;
-    font-size: var(--fs-body);
+    font-size: var(--fs-body); /* سایز متن توضیحات با فونت Zar */
 }
 
 .btn-gold {
@@ -204,6 +211,7 @@ header {
     border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
+    font-size: var(--fs-body); /* سایز متن دکمه با فونت Comps */
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -237,7 +245,7 @@ header {
 }
 
 /* ==========================================
-   ۴. بخش کارت‌های تخصص
+   ۹. بخش کارت‌های تخصص (Services)
    ========================================== */
 .services {
     padding: 80px 2rem;
@@ -251,7 +259,7 @@ header {
 }
 
 .section-title h2 {
-    font-size: var(--fs-h2);
+    font-size: var(--fs-h2); /* سایز تیتر بخش‌ها با فونت Titr */
     color: #ffffff;
     position: relative;
     display: inline-block;
@@ -298,18 +306,18 @@ header {
 }
 
 .card h3 {
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h3); /* سایز عنوان کارت با فونت Titr */
     margin-bottom: 1rem;
     color: #fff;
 }
 
 .card p {
     color: #9e9ea7;
-    font-size: var(--fs-body);
+    font-size: var(--fs-body); /* سایز توضیحات کارت با فونت Zar */
 }
 
 /* ==========================================
-   ۵. بخش تماس با ما
+   ۱۰. بخش تماس با ما (Contact)
    ========================================== */
 .contact {
     padding: 80px 2rem;
@@ -329,7 +337,7 @@ header {
 }
 
 .contact-info h3 {
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h3); /* عنوان بخش تماس با فونت Comps */
     color: #c5a059;
     margin-bottom: 1.5rem;
 }
@@ -340,7 +348,7 @@ header {
     gap: 1rem;
     margin-bottom: 1.2rem;
     color: #9e9ea7;
-    font-size: var(--fs-body);
+    font-size: var(--fs-body); /* متن اطلاعات تماس با فونت Zar */
 }
 
 .info-item i {
@@ -355,18 +363,20 @@ header {
     gap: 1.2rem;
 }
 
-.form-group input, .form-group textarea {
+.form-group input, 
+.form-group textarea {
     width: 100%;
     padding: 0.9rem;
     background-color: #0f1115;
     border: 1px solid #2a2e39;
     border-radius: 4px;
     color: #fff;
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
+    font-family: var(--font-body); /* فونت Zar برای فرم‌ها */
+    font-size: var(--fs-body);    /* سایز ورودی فرم */
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus, 
+.form-group textarea:focus {
     outline: none;
     border-color: #c5a059;
 }
@@ -384,19 +394,20 @@ header {
 }
 
 /* ==========================================
-   ۶. فوتر
+   ۱۱. فوتر سایت (Footer)
    ========================================== */
 footer {
     background-color: #090a0c;
     text-align: center;
     padding: 2rem;
     color: #9e9ea7;
-    font-size: var(--fs-nav);
+    font-family: var(--font-body); /* استفاده از فونت Zar */
+    font-size: var(--fs-nav);     /* سایز متن فوتر */
     border-top: 1px solid #2a2e39;
 }
 
 /* ==========================================
-   ۷. نسخه موبایل (ترتیب: ۱.عکس -> ۲.متن -> ۳.لوگو)
+   ۱۲. تنظیمات واکنش‌گرا (Responsive / موبایل)
    ========================================== */
 @media (max-width: 992px) {
     .nav-links {
@@ -425,7 +436,7 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: calc(var(--fs-h1) * 0.8);
+        font-size: calc(var(--fs-h1) * 0.8); /* کاهش متناسب سایز تیتر در موبایل */
     }
 
     .contact-container {
