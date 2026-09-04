@@ -7,7 +7,7 @@
     --font-accent: 'CustomComps', sans-serif;  /* فونت عناصر طلایی */
     --font-body: 'CustomZar', sans-serif;     /* فونت متن اصلی */
 
-    /* متغیرهای اندازه فونت (قابلیت تغییر سایز آسان) */
+    /* متغیرهای اندازه فونت */
     --fs-h1: 2.8rem;          /* سایز عنوان اصلی (نام وکیل) */
     --fs-h2: 2.0rem;          /* سایز عناوین اصلی بخش‌ها */
     --fs-h3: 1.3rem;          /* سایز تیتر کارت‌ها و عناوین فرعی */
@@ -19,7 +19,7 @@
 /* ==========================================
    ۲. تعریف فونت‌های سفارشی از پوشه fonts
    ========================================== */
-/* ۱. فونت عناوین و تیترها (Titr) */
+/* فونت عناوین و تیترها (Titr) */
 @font-face {
     font-family: 'CustomTitr';
     src: url('fonts/titr.woff2') format('woff2'),
@@ -29,7 +29,7 @@
     font-display: swap;
 }
 
-/* ۲. فونت بخش‌ها و متن‌های طلایی (Comps) */
+/* فونت بخش‌ها و متن‌های طلایی (Comps) */
 @font-face {
     font-family: 'CustomComps';
     src: url('fonts/comps.woff2') format('woff2'),
@@ -39,7 +39,7 @@
     font-display: swap;
 }
 
-/* ۳. فونت متن اصلی سایت (Zar) */
+/* فونت متن اصلی سایت (Zar) */
 @font-face {
     font-family: 'CustomZar';
     src: url('fonts/zar.woff2') format('woff2'),
@@ -63,33 +63,30 @@ html {
 }
 
 body {
-    font-family: var(--font-body); /* استفاده از فونت Zar */
-    font-size: var(--fs-body);    /* سایز متن بدنه */
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
     background-color: #0f1115 !important;
     color: #f1f1f1;
     line-height: 1.8;
 }
 
 /* ==========================================
-   ۴. تخصیص فونت تیترها (فونت Titr)
+   ۴. تخصیص فونت تیترها و عناوین طلایی
    ========================================== */
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading); /* استفاده از فونت Titr */
+    font-family: var(--font-heading);
 }
 
-/* ==========================================
-   ۵. تخصیص فونت عناصر طلایی (فونت Comps)
-   ========================================== */
 .subtitle,
 .logo,
 .contact-info h3,
 .info-item i,
 .btn-gold {
-    font-family: var(--font-accent); /* استفاده از فونت Comps */
+    font-family: var(--font-accent);
 }
 
 /* ==========================================
-   ۶. هدر و منوی بالای سایت (فونت Zar)
+   ۵. هدر و منوی بالای سایت
    ========================================== */
 header {
     background-color: #0f1115 !important;
@@ -128,8 +125,8 @@ header {
 .nav-links a {
     color: #f1f1f1;
     text-decoration: none;
-    font-size: var(--fs-nav);     /* سایز لینک‌های منو */
-    font-family: var(--font-body); /* فونت Zar */
+    font-size: var(--fs-nav);
+    font-family: var(--font-body);
     transition: color 0.3s;
 }
 
@@ -143,7 +140,7 @@ header {
 }
 
 /* ==========================================
-   ۷. لوگوی چرخشی سکه‌ای
+   ۶. لوگوی چرخشی سکه‌ای
    ========================================== */
 .spinner-logo {
     width: 195px;
@@ -176,28 +173,28 @@ header {
 }
 
 /* ==========================================
-   ۸. بخش معرفی اصلی (Hero - ارتفاع کم‌تر و فواصل بیشتر)
+   ۷. بخش معرفی اصلی (Hero)
    ========================================== */
 .hero {
-    padding: 75px 2rem 45px;
+    padding: 110px 2rem 50px;
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 200px 1fr 520px;
-    gap: 5rem; 
+    gap: 4rem; 
     align-items: center;
     background-color: #0f1115;
 }
 
 .hero-text h1 {
-    font-size: var(--fs-h1); /* سایز عنوان اصلی با فونت Titr */
+    font-size: var(--fs-h1);
     font-weight: 800;
     margin-bottom: 0.5rem;
     color: #ffffff;
 }
 
 .hero-text .subtitle {
-    font-size: var(--fs-subtitle); /* سایز زیرعنوان با فونت Comps */
+    font-size: var(--fs-subtitle);
     color: #c5a059;
     margin-bottom: 1.2rem;
     font-weight: 600;
@@ -206,7 +203,7 @@ header {
 .hero-text p {
     color: #9e9ea7;
     margin-bottom: 1.5rem;
-    font-size: var(--fs-body); /* سایز متن توضیحات با فونت Zar */
+    font-size: var(--fs-body);
 }
 
 .btn-gold {
@@ -217,7 +214,7 @@ header {
     border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
-    font-size: var(--fs-body); /* سایز متن دکمه با فونت Comps */
+    font-size: var(--fs-body);
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -237,14 +234,10 @@ header {
     height: auto;
     display: block;
     border-radius: 12px;
-    border: none; /* حذف کادر دور عکس */
-    
-    /* سایه عمیق چندلایه برای برجستگی سه‌بعدی */
     box-shadow: 
         0 20px 40px rgba(0, 0, 0, 0.8),
         0 8px 20px rgba(0, 0, 0, 0.6),
         0 0 25px rgba(197, 160, 89, 0.15);
-        
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -257,7 +250,7 @@ header {
 }
 
 /* ==========================================
-   ۹. بخش کارت‌های تخصص (تصویر در بالا، متن در پایین)
+   ۸. بخش کارت‌های تخصص (Services)
    ========================================== */
 .services {
     padding: 80px 2rem;
@@ -272,7 +265,7 @@ header {
 
 .section-title h2 {
     font-size: var(--fs-h2);
-    font-family: var(--font-heading); /* فونت Titr */
+    font-family: var(--font-heading);
     color: #ffffff;
     position: relative;
     display: inline-block;
@@ -290,11 +283,12 @@ header {
     background-color: #c5a059;
 }
 
+/* شبکه کارت‌ها با CSS Grid */
 .cards-grid {
     max-width: 1300px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* ۳ ستون در دسکتاپ */
     gap: 2.5rem;
 }
 
@@ -302,7 +296,7 @@ header {
     background-color: #181b22;
     border: 1px solid #2a2e39;
     border-radius: 10px;
-    overflow: hidden; /* جلوگیری از بیرون‌زدگی تصویر */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -314,10 +308,10 @@ header {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(197, 160, 89, 0.2);
 }
 
-/* تصویر بالای کارت */
+/* تصویر بالای کارت با ابعاد قفل‌شده */
 .card-image {
     width: 100%;
-    height: 200px;
+    height: 200px; /* ارتفاع ثابت */
     overflow: hidden;
     position: relative;
 }
@@ -325,15 +319,16 @@ header {
 .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* پر کردن کادر بدون دفرمگی */
+    object-position: center;
     transition: transform 0.5s ease;
 }
 
 .card:hover .card-image img {
-    transform: scale(1.08); /* افکت زوم نرم هنگام هاور */
+    transform: scale(1.08);
 }
 
-/* متن پایین کارت */
+/* متن و توضیحات کارت */
 .card-content {
     padding: 1.8rem 1.5rem;
     display: flex;
@@ -344,20 +339,20 @@ header {
 
 .card-content h3 {
     font-size: var(--fs-h3);
-    font-family: var(--font-heading); /* فونت Titr */
-    color: #c5a059; /* رنگ طلایی عنوان کارت */
+    font-family: var(--font-heading);
+    color: #c5a059;
     margin-bottom: 0.8rem;
 }
 
 .card-content p {
     color: #a0a5b1;
-    font-family: var(--font-body); /* فونت Zar */
+    font-family: var(--font-body);
     font-size: var(--fs-body);
     line-height: 1.8;
 }
 
 /* ==========================================
-   ۱۰. بخش تماس با ما (Contact)
+   ۹. بخش تماس با ما (Contact)
    ========================================== */
 .contact {
     padding: 80px 2rem;
@@ -377,7 +372,7 @@ header {
 }
 
 .contact-info h3 {
-    font-size: var(--fs-h3); /* عنوان بخش تماس با فونت Comps */
+    font-size: var(--fs-h3);
     color: #c5a059;
     margin-bottom: 1.5rem;
 }
@@ -388,7 +383,7 @@ header {
     gap: 1rem;
     margin-bottom: 1.2rem;
     color: #9e9ea7;
-    font-size: var(--fs-body); /* متن اطلاعات تماس با فونت Zar */
+    font-size: var(--fs-body);
 }
 
 .info-item i {
@@ -411,8 +406,8 @@ header {
     border: 1px solid #2a2e39;
     border-radius: 4px;
     color: #fff;
-    font-family: var(--font-body); /* فونت Zar برای فرم‌ها */
-    font-size: var(--fs-body);    /* سایز ورودی فرم */
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
 }
 
 .form-group input:focus, 
@@ -434,21 +429,23 @@ header {
 }
 
 /* ==========================================
-   ۱۱. فوتر سایت (Footer)
+   ۱۰. فوتر سایت (Footer)
    ========================================== */
 footer {
     background-color: #090a0c;
     text-align: center;
     padding: 2rem;
     color: #9e9ea7;
-    font-family: var(--font-body); /* استفاده از فونت Zar */
-    font-size: var(--fs-nav);     /* سایز متن فوتر */
+    font-family: var(--font-body);
+    font-size: var(--fs-nav);
     border-top: 1px solid #2a2e39;
 }
 
 /* ==========================================
-   ۱۲. تنظیمات واکنش‌گرا (Responsive / موبایل)
+   ۱۱. تنظیمات واکنش‌گرا (Responsive Media Queries)
    ========================================== */
+
+/* تبلت‌ها و نمایشگرهای متوسط (زیر ۹۹۲ پیکسل) */
 @media (max-width: 992px) {
     .nav-links, .nav-btn {
         display: none;
@@ -458,21 +455,21 @@ footer {
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding-top: 90px;
+        padding-top: 100px;
         gap: 2rem;
     }
 
-    /* ترتیب دقیق چیدمان عمودی در موبایل: ۱. عکس -> ۲. متن -> ۳. لوگو */
+    /* ترتیب چیدمان عمودی در نسخه لمسی: ۱. عکس -> ۲. متن -> ۳. لوگو */
     .hero .image-order {
-        order: 1; /* اول: عکس */
+        order: 1;
     }
 
     .hero .text-order {
-        order: 2; /* دوم: متن */
+        order: 2;
     }
 
     .hero .logo-order {
-        order: 3; /* سوم: لوگو */
+        order: 3;
         margin-top: 0.5rem;
     }
 
@@ -480,29 +477,38 @@ footer {
         font-size: calc(var(--fs-h1) * 0.8);
     }
 
+    /* تغییر چیدمان کارت‌ها به ۲ ستون در تبلت */
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+    }
+
     .contact-container {
         grid-template-columns: 1fr;
     }
 }
-/* بخش نگهدارنده تصویر کارت */
-.card-image {
-    width: 100%;           /* پهنای کامل کارت */
-    height: 200px;         /* ارتفاع ثابت برای همه تصاویر (قابل تغییر) */
-    overflow: hidden;      /* برش قسمت‌های اضافه تصویر */
-    border-top-left-radius: 8px;   /* گرد کردن گوشه بالا-راست */
-    border-top-right-radius: 8px;  /* گرد کردن گوشه بالا-چپ */
-}
 
-/* خود تصویر داخل کارت */
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;     /* حفظ نسبت ابعاد عکس و پر کردن کامل کادر بدون کشیدگی */
-    object-position: center; /* مرکزچین کردن تصویر داخل کادر */
-    transition: transform 0.3s ease; /* افکت نرم برای هور (Hover) */
-}
+/* موبایل‌ها (زیر ۶۰۰ پیکسل) */
+@media (max-width: 600px) {
+    .hero {
+        padding-top: 90px;
+    }
 
-/* افکت زوم هنگام قرار گرفتن موس روی کارت */
-.card:hover .card-image img {
-    transform: scale(1.05); /* زوم ۵ درصدی روی تصویر */
+    /* تغییر چیدمان کارت‌ها به ۱ ستون در موبایل */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card-image {
+        height: 180px; /* کاهش ارتفاع تصویر در موبایل */
+    }
+
+    .card-content {
+        padding: 1.2rem;
+    }
+
+    .contact-container {
+        padding: 1.5rem;
+    }
 }
