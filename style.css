@@ -66,7 +66,7 @@ body {
     font-family: var(--font-body);
     font-size: var(--fs-body);
     background-color: #0f1115 !important;
-    color: #f1f1f1;
+    color: #ffffff;
     line-height: 1.8;
 }
 
@@ -127,7 +127,7 @@ header {
 }
 
 .nav-links a {
-    color: #f1f1f1;
+    color: #ffffff;
     text-decoration: none;
     font-size: var(--fs-nav);
     font-family: var(--font-body);
@@ -209,7 +209,7 @@ header {
 }
 
 .hero-text p {
-    color: #9e9ea7;
+    color: #e0e0e0;
     margin-bottom: 1.5rem;
     font-size: var(--fs-body);
 }
@@ -347,7 +347,7 @@ header {
     text-align: right;
 }
 
-/* تیتر کارت‌ها با افکت طلایی براق شیب‌دار */
+/* تیتر کارت‌ها با افکت طلایی براق */
 .card-content h3 {
     font-size: var(--fs-h3);
     font-family: var(--font-heading);
@@ -358,8 +358,9 @@ header {
     filter: drop-shadow(0 0 8px rgba(245, 208, 97, 0.35));
 }
 
+/* متن بدنه کارت‌ها (سفید کاملاً واضح) */
 .card-content p {
-    color: #a0a5b1;
+    color: #ffffff !important;
     font-family: var(--font-body);
     font-size: var(--fs-body);
     line-height: 1.8;
@@ -399,7 +400,7 @@ header {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.2rem;
-    color: #9e9ea7;
+    color: #ffffff;
     font-size: var(--fs-body);
 }
 
@@ -423,7 +424,7 @@ header {
     background-color: #0f1115;
     border: 1px solid #2a2e39;
     border-radius: 4px;
-    color: #fff;
+    color: #ffffff;
     font-family: var(--font-body);
     font-size: var(--fs-body);
 }
@@ -454,7 +455,7 @@ footer {
     background-color: #090a0c;
     text-align: center;
     padding: 2rem;
-    color: #9e9ea7;
+    color: #ffffff;
     font-family: var(--font-body);
     font-size: var(--fs-nav);
     border-top: 1px solid #2a2e39;
@@ -474,54 +475,3 @@ footer {
         text-align: center;
         padding-top: 100px;
         gap: 2rem;
-    }
-
-    .hero .image-order {
-        order: 1;
-    }
-
-    .hero .text-order {
-        order: 2;
-    }
-
-    .hero .logo-order {
-        order: 3;
-        margin-top: 0.5rem;
-    }
-
-    .hero-text h1 {
-        font-size: calc(var(--fs-h1) * 0.8);
-    }
-
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.8rem;
-    }
-
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        padding-top: 90px;
-    }
-
-    .cards-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .card-image {
-        height: 180px;
-    }
-
-    .card-content {
-        padding: 1.2rem;
-    }
-
-    .contact-container {
-        padding: 1.5rem;
-    }
-}
