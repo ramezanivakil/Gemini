@@ -484,3 +484,25 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* بخش نگهدارنده تصویر کارت */
+.card-image {
+    width: 100%;           /* پهنای کامل کارت */
+    height: 200px;         /* ارتفاع ثابت برای همه تصاویر (قابل تغییر) */
+    overflow: hidden;      /* برش قسمت‌های اضافه تصویر */
+    border-top-left-radius: 8px;   /* گرد کردن گوشه بالا-راست */
+    border-top-right-radius: 8px;  /* گرد کردن گوشه بالا-چپ */
+}
+
+/* خود تصویر داخل کارت */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* حفظ نسبت ابعاد عکس و پر کردن کامل کادر بدون کشیدگی */
+    object-position: center; /* مرکزچین کردن تصویر داخل کادر */
+    transition: transform 0.3s ease; /* افکت نرم برای هور (Hover) */
+}
+
+/* افکت زوم هنگام قرار گرفتن موس روی کارت */
+.card:hover .card-image img {
+    transform: scale(1.05); /* زوم ۵ درصدی روی تصویر */
+}
