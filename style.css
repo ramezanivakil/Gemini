@@ -1,542 +1,932 @@
-/* ==========================================
-   ۱. تعریف متغیرها (فونت‌ها و سایزها)
-   ========================================== */
+/* =========================================================
+   محمدرضا محمدی رمضانی
+   PERSONAL LAWYER WEBSITE
+   ========================================================= */
+/* =========================================================
+   VARIABLES
+   ========================================================= */
 :root {
-    /* نگاشت نام فونت‌های سفارشی محلی */
-    --font-heading: 'CustomTitr', sans-serif; /* فونت تیترها */
-    --font-accent: 'CustomComps', sans-serif;  /* فونت عناصر طلایی */
-    --font-body: 'CustomZar', sans-serif;     /* فونت متن اصلی */
-
-    /* متغیرهای اندازه فونت */
-    --fs-h1: 2.8rem;          /* سایز عنوان اصلی (نام وکیل) */
-    --fs-h2: 2.0rem;          /* سایز عناوین اصلی بخش‌ها */
-    --fs-h3: 1.3rem;          /* سایز تیتر کارت‌ها و عناوین فرعی */
-    --fs-subtitle: 1.25rem;   /* سایز زیرعنوان طلایی */
-    --fs-body: 1.05rem;       /* سایز متن‌های عمومی و بدنه */
-    --fs-nav: 0.95rem;        /* سایز منو و فوتر */
+    --navy-dark: #07111f;
+    --navy: #0b132b;
+    --navy-light: #17233d;
+    --gold: #d4af37;
+    --gold-light: #f3d36a;
+    --gold-dark: #a77d18;
+    --white: #ffffff;
+    --white-soft: #f8fafc;
+    --text-dark: #0f172a;
+    --text-gray: #64748b;
+    --border: #e2e8f0;
+    --background: #f7f8fa;
+    --font-heading: 'CustomTitr', Tahoma, sans-serif;
+    --font-accent: 'CustomComps', Tahoma, sans-serif;
+    --font-body: 'CustomZar', Tahoma, sans-serif;
 }
-
-/* ==========================================
-   ۲. تعریف فونت‌های سفارشی از پوشه fonts
-   ========================================== */
-/* فونت عناوین و تیترها (Titr) */
+/* =========================================================
+   FONTS
+   ========================================================= */
 @font-face {
     font-family: 'CustomTitr';
-    src: url('fonts/titr.woff2') format('woff2'),
-         url('fonts/titr.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    src:
+        url('fonts/titr.woff2') format('woff2'),
+        url('fonts/titr.ttf') format('truetype');
     font-display: swap;
 }
-
-/* فونت بخش‌ها و متن‌های طلایی (Comps) */
 @font-face {
     font-family: 'CustomComps';
-    src: url('fonts/comps.woff2') format('woff2'),
-         url('fonts/comps.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    src:
+        url('fonts/comps.woff2') format('woff2'),
+        url('fonts/comps.ttf') format('truetype');
     font-display: swap;
 }
-
-/* فونت متن اصلی سایت (Zar) */
 @font-face {
     font-family: 'CustomZar';
-    src: url('fonts/zar.woff2') format('woff2'),
-         url('fonts/zar.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    src:
+        url('fonts/zar.woff2') format('woff2'),
+        url('fonts/zar.ttf') format('truetype');
     font-display: swap;
 }
-
-/* ==========================================
-   ۳. تنظیمات عمومی و بدنه
-   ========================================== */
+/* =========================================================
+   RESET
+   ========================================================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--text-dark);
     font-family: var(--font-body);
-    font-size: var(--fs-body);
-    background-color: #0f1115 !important;
-    color: #ffffff;
     line-height: 1.8;
 }
-
-/* ==========================================
-   ۴. تخصیص فونت تیترها و عناوین
-   ========================================== */
+img {
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+}
+button,
+input,
+textarea {
+    font-family: inherit;
+}
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
 }
-
-.subtitle,
-.logo,
-.contact-info h3,
-.info-item i,
-.btn-gold {
-    font-family: var(--font-accent);
-}
-
-/* ==========================================
-   ۵. هدر و منوی بالای سایت
-   ========================================== */
+/* =========================================================
+   HEADER
+   ========================================================= */
 header {
-    background-color: #0f1115 !important;
     position: fixed;
     top: 0;
-    width: 100%;
+    right: 0;
+    left: 0;
     z-index: 1000;
-    border-bottom: 1px solid #2a2e39;
+    width: 100%;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+    box-shadow: 0 4px 25px rgba(15,23,42,0.06);
 }
-
 .nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 1350px;
+    margin: auto;
+    padding: 7px 24px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 2rem;
+    justify-content: space-between;
+}
+.logo {
+    color: var(--navy);
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.header-left-action {
+    display: flex;
+    align-items: center;
+}
+/* =========================================================
+   SOCIAL
+   ========================================================= */
+.header-social-bar {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    direction: ltr;
+}
+.header-social-item {
+    width: 37px;
+    height: 37px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--navy);
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(15,23,42,0.08);
+    transition: all .3s ease;
+}
+.header-social-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.header-social-item:hover {
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 18px rgba(15,23,42,0.18);
+}
+/* =========================================================
+   CALL ANIMATION
+   ========================================================= */
+@keyframes ringBell {
+    0%   { transform: rotate(0); }
+    8%   { transform: rotate(12deg); }
+    16%  { transform: rotate(-12deg); }
+    24%  { transform: rotate(10deg); }
+    32%  { transform: rotate(-10deg); }
+    40%  { transform: rotate(5deg); }
+    48%  { transform: rotate(0); }
+    100% { transform: rotate(0); }
+}
+.header-social-item.call-btn {
+    animation: ringBell 2.5s infinite ease-in-out;
+}
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero-modern {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    padding: 80px 25px 35px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 78% 45%, rgba(212,175,55,.12), transparent 25%),
+        linear-gradient(135deg, #050c18 0%, #0b132b 45%, #17233d 100%);
+}
+.hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: .07;
+    background-image:
+        linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
+    background-size: 55px 55px;
+}
+.hero-decoration {
+    position: absolute;
+    border: 1px solid rgba(212,175,55,.18);
+    border-radius: 50%;
+}
+.hero-decoration-one {
+    width: 500px;
+    height: 500px;
+    right: -230px;
+    top: -180px;
+}
+.hero-decoration-two {
+    width: 300px;
+    height: 300px;
+    left: -170px;
+    bottom: -150px;
+}
+.hero-decoration-three {
+    width: 150px;
+    height: 150px;
+    left: 15%;
+    top: 15%;
+    border-style: dashed;
+}
+.hero-modern-container {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr .9fr;
+    gap: 35px;
+    align-items: center;
+}
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+.hero-modern-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.hero-modern-content h1 {
+    margin: 0 0 12px;
+    color: #ffffff !important;
+    font-size: clamp(2.1rem, 4vw, 2.7rem);
+    font-weight: 900;
+    line-height: 1.3;
+    text-shadow: 0 4px 20px rgba(0,0,0,.3);
+}
+.hero-modern-content h1::after {
+    content: "";
+    display: block;
+    width: 85px;
+    height: 3px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--gold-light), var(--gold));
 }
 
-/* لوگوی بالای صفحه با افکت طلایی براق */
-.logo {
-    font-size: 1.3rem;
-    font-weight: 800;
-    text-decoration: none;
+/* ===== تراز یکسان همه سطرها ===== */
+.hero-title-line {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, #FFF0C2 0%, #F5D061 35%, #FFFFFF 50%, #E6C687 70%, #C5A059 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 8px rgba(245, 208, 97, 0.4));
+    margin: 2px 0;
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
 }
-
-.nav-links {
+.hero-title-line i {
+    width: 30px;
+    height: 30px;
     display: flex;
-    list-style: none;
-    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--navy);
+    background: var(--gold-light);
+    font-size: 0.85rem;
+    flex-shrink: 0;
 }
 
-.nav-links a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: var(--fs-nav);
-    font-family: var(--font-body);
-    transition: color 0.3s;
+/* =========================================================
+   CREDENTIALS
+   ========================================================= */
+.hero-credentials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 15px;
+    width: 100%;
 }
-
-.nav-links a:hover {
-    color: #f5d061;
+.hero-credentials span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffffff !important;
+    font-size: .86rem;
+    width: 100%;
 }
-
-.nav-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: var(--fs-nav);
+.hero-credentials i {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--navy);
+    background: var(--gold-light);
+    font-size: 0.8rem;
+    flex-shrink: 0;
 }
-
-/* ==========================================
-   ۶. لوگوی چرخشی سکه‌ای
-   ========================================== */
-.spinner-logo {
-    width: 195px;
-    height: 195px;
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+.hero-modern-visual {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-glow {
+    position: absolute;
+    width: 390px;
+    height: 390px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,175,55,.24), rgba(212,175,55,.07) 40%, transparent 70%);
+}
+.hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(212,175,55,.25);
+}
+.hero-circle-one {
+    width: 430px;
+    height: 430px;
+}
+.hero-circle-two {
+    width: 350px;
+    height: 350px;
+    border-style: dashed;
+}
+.hero-circle-three {
+    width: 275px;
+    height: 275px;
+    border: 2px solid rgba(212,175,55,.12);
+}
+.hero-profile-wrapper {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    max-width: 400px;
+}
+.hero-profile {
+    display: block;
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,.45));
+}
+.hero-modern-logo {
+    position: absolute;
+    z-index: 7;
+    top: 5px;
+    right: 10px;
+    width: 105px;
+    height: 105px;
     display: flex;
     align-items: center;
     justify-content: center;
     perspective: 1000px;
-    margin: 0 auto;
 }
-
-.spinner-logo img {
+.hero-modern-logo img {
     width: 100%;
     height: 100%;
-    max-width: 195px;
-    max-height: 195px;
     object-fit: contain;
-    display: block;
-    animation: flipCoin 4s linear infinite;
     transform-style: preserve-3d;
+    animation: flipCoin 6s linear infinite;
+    filter: drop-shadow(0 0 14px rgba(212,175,55,.45));
 }
-
 @keyframes flipCoin {
-    0% {
-        transform: rotateY(0deg);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
+    0%   { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
 }
-
-/* ==========================================
-   ۷. بخش معرفی اصلی (Hero)
-   ========================================== */
-.hero {
-    padding: 110px 2rem 50px;
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 200px 1fr 520px;
-    gap: 4rem; 
-    align-items: center;
-    background-color: #0f1115;
-}
-
-.hero-text h1 {
-    font-size: var(--fs-h1);
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    color: #ffffff;
-}
-
-/* زیرعنوان طلایی براق با درخشش بالا */
-.hero-text .subtitle {
-    font-size: var(--fs-subtitle);
-    margin-bottom: 1.2rem;
-    font-weight: 600;
-    background: linear-gradient(135deg, #FFF5D0 0%, #F5D061 30%, #FFFFFF 50%, #E6C687 70%, #C5A059 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(245, 208, 97, 0.5));
-}
-
-.hero-text p {
-    color: #ffffff;
-    margin-bottom: 1.5rem;
-    font-size: var(--fs-body);
-}
-
-/* دکمه طلایی براق فلزی */
-.btn-gold {
-    display: inline-block;
-    background: linear-gradient(135deg, #E6C687 0%, #F5D061 50%, #C5A059 100%);
-    color: #000000;
-    padding: 0.8rem 2rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: var(--fs-body);
-    box-shadow: 0 4px 18px rgba(245, 208, 97, 0.4);
-    transition: all 0.3s ease;
-}
-
-.btn-gold:hover {
-    background: linear-gradient(135deg, #FFF0C2 0%, #FFE599 50%, #F5D061 100%);
-    box-shadow: 0 6px 25px rgba(255, 229, 153, 0.6);
-    transform: translateY(-2px);
-}
-
-.hero-image {
-    text-align: center;
-    width: 100%;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 520px;
-    height: auto;
-    display: block;
-    border-radius: 12px;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.8),
-        0 8px 20px rgba(0, 0, 0, 0.6),
-        0 0 25px rgba(197, 160, 89, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.hero-image img:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.9),
-        0 12px 25px rgba(0, 0, 0, 0.7),
-        0 0 35px rgba(245, 208, 97, 0.35);
-}
-
-/* ==========================================
-   ۸. بخش کارت‌های تخصص (Services)
-   ========================================== */
-.services {
-    padding: 80px 2rem;
-    background-color: #13151b;
-    border-top: 1px solid #2a2e39;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3.5rem;
-}
-
-.section-title h2 {
-    font-size: var(--fs-h2);
-    font-family: var(--font-heading);
-    color: #ffffff;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
-}
-
-.section-title h2::after {
-    content: '';
+/* =========================================================
+   SCROLL
+   ========================================================= */
+.hero-scroll {
     position: absolute;
-    bottom: 0;
+    z-index: 10;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 70px;
-    height: 3px;
-    background: linear-gradient(90deg, #C5A059, #F5D061, #C5A059);
-    box-shadow: 0 0 10px rgba(245, 208, 97, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255,255,255,.55);
+    font-size: .75rem;
 }
-
-/* شبکه کارت‌ها با CSS Grid (پیش‌فرض دسکتاپ: ۳ ستون) */
+.hero-scroll i {
+    color: var(--gold);
+    animation: scrollDown 1.5s infinite ease-in-out;
+}
+@keyframes scrollDown {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(5px); }
+    100% { transform: translateY(0); }
+}
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+.section-title {
+    margin-bottom: 40px;
+    text-align: center;
+}
+.section-kicker {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gold-dark);
+    font-size: .9rem;
+    font-weight: 700;
+}
+.section-title h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    color: var(--navy);
+    font-size: 1.85rem;
+}
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    width: 75px;
+    height: 4px;
+    transform: translateX(50%);
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+}
+/* =========================================================
+   SERVICES
+   ========================================================= */
+.services {
+    padding: 70px 25px 40px;
+    background: #f5f7fa;
+    border-top: 1px solid #e8edf2;
+    border-bottom: 1px solid #e8edf2;
+}
 .cards-grid {
-    max-width: 1300px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    gap: 25px;
 }
-
+/* =========================================================
+   CARD
+   ========================================================= */
 .card {
-    background-color: #181b22;
-    border: 1px solid #2a2e39;
-    border-radius: 10px;
+    position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e4e8ee;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 7px 25px rgba(15,23,42,.055);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
-
-.card:hover {
-    transform: translateY(-8px);
-    border-color: #f5d061;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(245, 208, 97, 0.25);
-}
-
-.card-image {
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 100%;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform .4s ease;
 }
-
+.card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(212,175,55,.42);
+    box-shadow: 0 18px 40px rgba(15,23,42,.13);
+}
+.card:hover::before {
+    transform: scaleX(1);
+}
+.card-image {
+    position: relative;
+    width: 100%;
+    height: 215px;
+    overflow: hidden;
+}
 .card-image img {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform .6s ease;
 }
-
 .card:hover .card-image img {
     transform: scale(1.08);
 }
-
+.card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(4,10,20,.65), rgba(4,10,20,.03) 65%);
+}
+.service-number {
+    position: absolute;
+    top: 12px;
+    right: 13px;
+    z-index: 3;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 10px;
+    color: #fff;
+    background: rgba(5,12,24,.55);
+    backdrop-filter: blur(7px);
+    font-family: Tahoma, sans-serif;
+    font-size: .82rem;
+    font-weight: 700;
+}
+.service-icon {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    z-index: 3;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--navy);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    box-shadow: 0 7px 20px rgba(0,0,0,.22);
+    transition: transform .35s ease;
+}
+.card:hover .service-icon {
+    transform: rotate(-8deg) scale(1.08);
+}
 .card-content {
-    padding: 1.8rem 1.5rem;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    text-align: right;
+    padding: 20px;
 }
-
-/* تیتر کارت‌ها با افکت طلایی براق */
+.card-title-row {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+}
 .card-content h3 {
-    font-size: var(--fs-h3);
-    font-family: var(--font-heading);
-    margin-bottom: 0.8rem;
-    background: linear-gradient(135deg, #FFF0C2 0%, #F5D061 40%, #FFFFFF 60%, #C5A059 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 8px rgba(245, 208, 97, 0.35));
+    position: relative;
+    padding-right: 13px;
+    color: var(--navy);
+    font-size: 1.18rem;
+    line-height: 1.6;
 }
-
-/* متن بدنه کارت‌ها (سفید کاملاً واضح) */
+.card-content h3::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 3px;
+    height: calc(100% - 10px);
+    border-radius: 5px;
+    background: var(--gold);
+}
 .card-content p {
-    color: #ffffff !important;
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
+    margin-top: 10px;
+    color: var(--text-gray);
+    font-size: .91rem;
     line-height: 1.8;
 }
-
-/* ==========================================
-   ۹. بخش تماس با ما (Contact)
-   ========================================== */
-.contact {
-    padding: 80px 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #0f1115;
+.service-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #edf0f3;
+    color: var(--gold-dark);
+    font-size: .86rem;
+    font-weight: 700;
 }
-
+.service-link i {
+    transition: transform .3s ease;
+}
+.card:hover .service-link i {
+    transform: translateX(-5px);
+}
+/* =========================================================
+   CONTACT
+   ========================================================= */
+.contact {
+    max-width: 1250px;
+    margin: auto;
+    padding: 40px 25px 70px;
+}
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    background-color: #181b22;
-    padding: 3rem;
-    border-radius: 8px;
-    border: 1px solid #2a2e39;
+    gap: 35px;
+    padding: 35px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(15,23,42,.07);
 }
-
 .contact-info h3 {
-    font-size: var(--fs-h3);
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #FFF0C2 0%, #F5D061 50%, #C5A059 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 8px rgba(245, 208, 97, 0.35));
+    margin-bottom: 25px;
+    color: var(--navy);
+    font-size: 1.3rem;
 }
-
 .info-item {
     display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.activity-arrow {
+    flex-shrink: 0;
+    color: var(--gold-dark);
+    font-size: 2.5rem;
+    line-height: .8;
+}
+.phone-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.phone-row {
+    display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
-    color: #ffffff;
-    font-size: var(--fs-body);
+    flex-wrap: wrap;
+    gap: 9px;
 }
-
-.info-item i {
-    color: #f5d061;
-    font-size: 1.2rem;
-    width: 25px;
-    filter: drop-shadow(0 0 5px rgba(245, 208, 97, 0.5));
+.phone-link {
+    direction: ltr;
+    color: var(--gold-dark);
+    font-family: Tahoma, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
 }
-
+.inline-call-btn {
+    width: 42px;
+    height: 42px;
+}
+.mobile-only-msg {
+    display: none;
+    margin-top: 4px;
+    color: var(--gold-dark);
+    font-size: .8rem;
+}
+.contact-social-section {
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--border);
+}
+.contact-social-section > span {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--text-gray);
+    font-size: .92rem;
+    font-weight: 700;
+}
+.contact-social-bar {
+    direction: rtl;
+    justify-content: flex-start;
+}
+/* =========================================================
+   FORM
+   ========================================================= */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #17202d;
+    border-radius: 9px;
+    outline: none;
+    background: #fff;
+    color: var(--text-dark);
+    font-size: 1rem;
+    direction: rtl;
+    text-align: right;
+    resize: vertical;
+    transition: all .3s ease;
+}
 .contact-form form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 15px;
 }
-
-.form-group input, 
-.form-group textarea {
-    width: 100%;
-    padding: 0.9rem;
-    background-color: #0f1115;
-    border: 1px solid #2a2e39;
-    border-radius: 4px;
-    color: #ffffff;
-    font-family: var(--font-body);
-    font-size: var(--fs-body);
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #64748b;
+    font-size: .87rem;
 }
-
-.form-group input:focus, 
+.form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: #f5d061;
-    box-shadow: 0 0 8px rgba(245, 208, 97, 0.3);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212,175,55,.15);
 }
-
-.form-btn {
-    width: 100%;
+.btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 12px 20px;
     border: none;
+    border-radius: 9px;
+    color: #111827;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    font-size: 1rem;
+    font-weight: 800;
     cursor: pointer;
 }
-
+.form-btn {
+    width: 100%;
+}
 .form-status {
-    margin-top: 1rem;
-    font-size: var(--fs-body);
+    margin-top: 12px;
     text-align: center;
+    font-weight: 700;
 }
-
-/* ==========================================
-   ۱۰. فوتر سایت (Footer)
-   ========================================== */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 footer {
-    background-color: #090a0c;
+    padding: 25px 20px;
     text-align: center;
-    padding: 2rem;
-    color: #ffffff;
-    font-family: var(--font-body);
-    font-size: var(--fs-nav);
-    border-top: 1px solid #2a2e39;
+    color: rgba(255,255,255,.8);
+    background: var(--navy-dark);
+    font-size: .9rem;
 }
-
-/* ==========================================
-   ۱۱. تنظیمات واکنش‌گرا (Responsive)
-   ========================================== */
-
-/* تبلت‌ها (زیر ۹۹۲ پیکسل) */
+/* =========================================================
+   TABLET
+   ========================================================= */
 @media screen and (max-width: 992px) {
-    .nav-links, .nav-btn {
-        display: none;
+    .hero-modern {
+        min-height: 530px;
+        padding: 80px 20px 35px;
     }
-
-    .hero {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding-top: 100px;
-        gap: 2rem;
+    .hero-modern-container {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
-
-    .hero .image-order {
+    .hero-modern-visual {
         order: 1;
+        min-height: 300px;
     }
-
-    .hero .text-order {
+    .hero-modern-content {
         order: 2;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-modern-content h1::after {
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .hero .logo-order {
-        order: 3;
-        margin-top: 0.5rem;
+    /* تراز راست‌چین حتی در حالت وسط‌چین شدن کل بلاک */
+    .hero-title-line {
+        justify-content: flex-start;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-credentials {
+        align-items: flex-start;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-credentials span {
+        justify-content: flex-start;
     }
 
-    .hero-text h1 {
-        font-size: calc(var(--fs-h1) * 0.8);
+    .hero-profile-wrapper {
+        max-width: 350px;
     }
-
-    /* کارت‌ها در تبلت: ۲ ستونه */
+    .hero-modern-logo {
+        right: 12%;
+    }
     .cards-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1.8rem !important;
+        grid-template-columns: repeat(2, 1fr);
     }
-
     .contact-container {
         grid-template-columns: 1fr;
     }
 }
-
-/* موبایل‌ها (زیر ۶۰۰ پیکسل) - حل کامل مشکل شکستن متن */
-@media screen and (max-width: 600px) {
-    .hero {
-        padding-top: 90px;
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media screen and (max-width: 700px) {
+    .nav-container {
+        padding: 6px 12px;
     }
-
-    /* اجبار کارت‌ها به نمایش ۱ ستونه (تک ستونه) */
+    .header-social-bar {
+        gap: 6px;
+    }
+    .header-social-item {
+        width: 32px;
+        height: 32px;
+    }
+    .logo {
+        font-size: .82rem;
+    }
+    .hero-modern {
+        min-height: 460px;
+        padding: 75px 15px 35px;
+    }
+    .hero-modern-visual {
+        min-height: 270px;
+    }
+    .hero-profile-wrapper {
+        max-width: 300px;
+    }
+    .hero-circle-one {
+        width: 330px;
+        height: 330px;
+    }
+    .hero-circle-two {
+        width: 275px;
+        height: 275px;
+    }
+    .hero-circle-three {
+        width: 215px;
+        height: 215px;
+    }
+    .hero-modern-logo {
+        width: 78px;
+        height: 78px;
+        top: 3px;
+        right: 8%;
+    }
+    .hero-modern-content h1 {
+        font-size: 1.6rem;
+        color: #ffffff !important;
+    }
+    .hero-title-line {
+        font-size: 1.0rem;
+        color: #ffffff !important;
+        max-width: 300px;
+    }
+    .hero-credentials {
+        gap: 6px;
+        margin-top: 12px;
+        max-width: 300px;
+    }
+    .hero-credentials span {
+        padding: 2px 0;
+        font-size: 0.9rem;
+        color: #ffffff !important;
+    }
     .cards-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
+        grid-template-columns: 1fr;
     }
-
-    .card {
-        width: 100% !important;
+    .services {
+        padding: 55px 15px 30px;
     }
-
-    .card-image {
-        height: 180px !important;
+    .contact {
+        padding: 30px 15px 55px;
     }
-
-    .card-content {
-        padding: 1.2rem 1rem !important;
+    .contact-container {
+        padding: 25px 20px;
     }
-
-    .card-content h3 {
-        font-size: 1.15rem !important;
+    .mobile-only-msg {
+        display: block;
     }
-
-    .card-content p {
-        font-size: 0.95rem !important;
-        word-break: normal;
-        overflow-wrap: break-word;
+}
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+@media screen and (max-width: 400px) {
+    .header-social-item {
+        width: 29px;
+        height: 29px;
     }
+    .hero-modern {
+        min-height: 420px;
+    }
+    .hero-modern-visual {
+        min-height: 240px;
+    }
+    .hero-profile-wrapper {
+        max-width: 270px;
+    }
+    .hero-modern-logo {
+        width: 68px;
+        height: 68px;
+    }
+    .hero-modern-content h1 {
+        font-size: 1.7rem;
+    }
+    .hero-title-line {
+        font-size: .95rem;
+        max-width: 270px;
+    }
+    .hero-credentials {
+        max-width: 270px;
+    }
+    .hero-credentials span {
+        font-size: .78rem;
+    }
+}
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
