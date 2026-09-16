@@ -1,9 +1,5 @@
 /* =========================================================
-   محمدرضا محمدی رمضانی
-   PERSONAL LAWYER WEBSITE
-   ========================================================= */
-/* =========================================================
-   VARIABLES
+   محمدرضا محمدی رمضانی - PERSONAL LAWYER WEBSITE
    ========================================================= */
 :root {
     --navy-dark: #07111f;
@@ -13,7 +9,6 @@
     --gold-light: #f3d36a;
     --gold-dark: #a77d18;
     --white: #ffffff;
-    --white-soft: #f8fafc;
     --text-dark: #0f172a;
     --text-gray: #64748b;
     --border: #e2e8f0;
@@ -22,89 +17,83 @@
     --font-accent: 'CustomComps', Tahoma, sans-serif;
     --font-body: 'CustomZar', Tahoma, sans-serif;
 }
-/* =========================================================
-   FONTS
-   ========================================================= */
+
 @font-face {
     font-family: 'CustomTitr';
-    src:
-        url('fonts/titr.woff2') format('woff2'),
-        url('fonts/titr.ttf') format('truetype');
+    src: url('fonts/titr.woff2') format('woff2'), url('fonts/titr.ttf') format('truetype');
     font-display: swap;
 }
 @font-face {
     font-family: 'CustomComps';
-    src:
-        url('fonts/comps.woff2') format('woff2'),
-        url('fonts/comps.ttf') format('truetype');
+    src: url('fonts/comps.woff2') format('woff2'), url('fonts/comps.ttf') format('truetype');
     font-display: swap;
 }
 @font-face {
     font-family: 'CustomZar';
-    src:
-        url('fonts/zar.woff2') format('woff2'),
-        url('fonts/zar.ttf') format('truetype');
+    src: url('fonts/zar.woff2') format('woff2'), url('fonts/zar.ttf') format('truetype');
     font-display: swap;
 }
-/* =========================================================
-   RESET
-   ========================================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
     background: var(--background);
     color: var(--text-dark);
     font-family: var(--font-body);
     line-height: 1.8;
+    overflow-x: hidden;
 }
+
 img {
     max-width: 100%;
+    height: auto;
+    display: block;
 }
+
 a {
     text-decoration: none;
 }
-button,
-input,
-textarea {
+
+button, input, textarea, select {
     font-family: inherit;
 }
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
 }
-/* =========================================================
-   HEADER
-   ========================================================= */
+
+/* ========== HEADER ========== */
 header {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     z-index: 1000;
-    width: 100%;
     background: rgba(255,255,255,0.94);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(15,23,42,0.08);
     box-shadow: 0 4px 25px rgba(15,23,42,0.06);
 }
+
 .nav-container {
-    width: 100%;
     max-width: 1350px;
     margin: auto;
     padding: 7px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
 }
+
 .logo {
     color: var(--navy);
     font-family: var(--font-accent);
@@ -112,75 +101,74 @@ header {
     font-weight: 700;
     white-space: nowrap;
 }
+
 .header-left-action {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
-/* =========================================================
-   SOCIAL
-   ========================================================= */
+
+/* ========== SOCIAL ========== */
 .header-social-bar {
     display: flex;
     align-items: center;
     gap: 9px;
     direction: ltr;
+    flex-wrap: nowrap;
 }
+
 .header-social-item {
     width: 37px;
     height: 37px;
-    padding: 0;
-    overflow: hidden;
+    min-width: 37px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--navy);
     border-radius: 50%;
     background: #fff;
-    cursor: pointer;
+    overflow: hidden;
     box-shadow: 0 3px 10px rgba(15,23,42,0.08);
-    transition: all .3s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
 }
+
 .header-social-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
+
 .header-social-item:hover {
     transform: translateY(-3px) scale(1.08);
     box-shadow: 0 8px 18px rgba(15,23,42,0.18);
 }
-/* =========================================================
-   CALL ANIMATION
-   ========================================================= */
+
 @keyframes ringBell {
-    0%   { transform: rotate(0); }
-    8%   { transform: rotate(12deg); }
-    16%  { transform: rotate(-12deg); }
-    24%  { transform: rotate(10deg); }
-    32%  { transform: rotate(-10deg); }
-    40%  { transform: rotate(5deg); }
-    48%  { transform: rotate(0); }
-    100% { transform: rotate(0); }
+    0%, 48%, 100% { transform: rotate(0); }
+    8% { transform: rotate(12deg); }
+    16% { transform: rotate(-12deg); }
+    24% { transform: rotate(10deg); }
+    32% { transform: rotate(-10deg); }
+    40% { transform: rotate(5deg); }
 }
+
 .header-social-item.call-btn {
     animation: ringBell 2.5s infinite ease-in-out;
 }
-/* =========================================================
-   HERO
-   ========================================================= */
+
+/* ========== HERO ========== */
 .hero-modern {
     position: relative;
-    width: 100%;
     min-height: 450px;
     padding: 80px 25px 35px;
-    overflow: hidden;
     display: flex;
     align-items: center;
+    overflow: hidden;
     background:
         radial-gradient(circle at 78% 45%, rgba(212,175,55,.12), transparent 25%),
         linear-gradient(135deg, #050c18 0%, #0b132b 45%, #17233d 100%);
 }
+
 .hero-pattern {
     position: absolute;
     inset: 0;
@@ -190,23 +178,28 @@ header {
         linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px);
     background-size: 55px 55px;
 }
+
 .hero-decoration {
     position: absolute;
     border: 1px solid rgba(212,175,55,.18);
     border-radius: 50%;
+    pointer-events: none;
 }
+
 .hero-decoration-one {
     width: 500px;
     height: 500px;
     right: -230px;
     top: -180px;
 }
+
 .hero-decoration-two {
     width: 300px;
     height: 300px;
     left: -170px;
     bottom: -150px;
 }
+
 .hero-decoration-three {
     width: 150px;
     height: 150px;
@@ -214,6 +207,7 @@ header {
     top: 15%;
     border-style: dashed;
 }
+
 .hero-modern-container {
     position: relative;
     z-index: 5;
@@ -225,22 +219,22 @@ header {
     gap: 35px;
     align-items: center;
 }
-/* =========================================================
-   HERO CONTENT
-   ========================================================= */
+
 .hero-modern-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+
 .hero-modern-content h1 {
     margin: 0 0 12px;
-    color: #ffffff !important;
+    color: #fff;
     font-size: clamp(2.1rem, 4vw, 2.7rem);
     font-weight: 900;
     line-height: 1.3;
     text-shadow: 0 4px 20px rgba(0,0,0,.3);
 }
+
 .hero-modern-content h1::after {
     content: "";
     display: block;
@@ -251,17 +245,17 @@ header {
     background: linear-gradient(90deg, var(--gold-light), var(--gold));
 }
 
-/* ===== تراز یکسان همه سطرها ===== */
 .hero-title-line {
     display: flex;
     align-items: center;
     gap: 10px;
     margin: 2px 0;
-    color: #ffffff !important;
-    font-size: 1.1rem;
+    color: #fff;
+    font-size: 1.5rem;
     font-weight: 700;
     width: 100%;
 }
+
 .hero-title-line i {
     width: 30px;
     height: 30px;
@@ -275,9 +269,13 @@ header {
     flex-shrink: 0;
 }
 
-/* =========================================================
-   CREDENTIALS
-   ========================================================= */
+.hero-title-line .title-sub {
+    font-size: 0.85em;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-right: 4px;
+}
+
 .hero-credentials {
     display: flex;
     flex-direction: column;
@@ -286,18 +284,16 @@ header {
     margin-top: 15px;
     width: 100%;
 }
+
 .hero-credentials span {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 2px 0;
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-    color: #ffffff !important;
-    font-size: .86rem;
+    color: #fff;
+    font-size: 1.05rem;
     width: 100%;
 }
+
 .hero-credentials i {
     width: 30px;
     height: 30px;
@@ -310,9 +306,7 @@ header {
     font-size: 0.8rem;
     flex-shrink: 0;
 }
-/* =========================================================
-   HERO VISUAL
-   ========================================================= */
+
 .hero-modern-visual {
     position: relative;
     min-height: 340px;
@@ -320,45 +314,41 @@ header {
     align-items: center;
     justify-content: center;
 }
+
 .hero-glow {
     position: absolute;
     width: 390px;
     height: 390px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(212,175,55,.24), rgba(212,175,55,.07) 40%, transparent 70%);
+    pointer-events: none;
 }
+
 .hero-circle {
     position: absolute;
     border-radius: 50%;
     border: 1px solid rgba(212,175,55,.25);
+    pointer-events: none;
 }
-.hero-circle-one {
-    width: 430px;
-    height: 430px;
-}
-.hero-circle-two {
-    width: 350px;
-    height: 350px;
-    border-style: dashed;
-}
-.hero-circle-three {
-    width: 275px;
-    height: 275px;
-    border: 2px solid rgba(212,175,55,.12);
-}
+
+.hero-circle-one { width: 430px; height: 430px; }
+.hero-circle-two { width: 350px; height: 350px; border-style: dashed; }
+.hero-circle-three { width: 275px; height: 275px; border: 2px solid rgba(212,175,55,.12); }
+
 .hero-profile-wrapper {
     position: relative;
     z-index: 4;
     width: 100%;
     max-width: 400px;
 }
+
 .hero-profile {
-    display: block;
     width: 100%;
     max-height: 400px;
     object-fit: contain;
     filter: drop-shadow(0 20px 30px rgba(0,0,0,.45));
 }
+
 .hero-modern-logo {
     position: absolute;
     z-index: 7;
@@ -366,26 +356,21 @@ header {
     right: 10px;
     width: 105px;
     height: 105px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     perspective: 1000px;
 }
+
 .hero-modern-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transform-style: preserve-3d;
     animation: flipCoin 6s linear infinite;
     filter: drop-shadow(0 0 14px rgba(212,175,55,.45));
 }
+
 @keyframes flipCoin {
-    0%   { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
+    to { transform: rotateY(360deg); }
 }
-/* =========================================================
-   SCROLL
-   ========================================================= */
+
 .hero-scroll {
     position: absolute;
     z-index: 10;
@@ -398,22 +383,22 @@ header {
     color: rgba(255,255,255,.55);
     font-size: .75rem;
 }
+
 .hero-scroll i {
     color: var(--gold);
     animation: scrollDown 1.5s infinite ease-in-out;
 }
+
 @keyframes scrollDown {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(5px); }
-    100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
 }
-/* =========================================================
-   SECTION TITLE
-   ========================================================= */
+
+/* ========== SECTION TITLE ========== */
 .section-title {
     margin-bottom: 40px;
     text-align: center;
 }
+
 .section-kicker {
     display: block;
     margin-bottom: 5px;
@@ -421,6 +406,7 @@ header {
     font-size: .9rem;
     font-weight: 700;
 }
+
 .section-title h2 {
     position: relative;
     display: inline-block;
@@ -428,6 +414,7 @@ header {
     color: var(--navy);
     font-size: 1.85rem;
 }
+
 .section-title h2::after {
     content: "";
     position: absolute;
@@ -439,37 +426,35 @@ header {
     border-radius: 10px;
     background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
 }
-/* =========================================================
-   SERVICES
-   ========================================================= */
+
+/* ========== SERVICES ========== */
 .services {
     padding: 70px 25px 40px;
     background: #f5f7fa;
     border-top: 1px solid #e8edf2;
     border-bottom: 1px solid #e8edf2;
 }
+
 .cards-grid {
-    width: 100%;
     max-width: 1250px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
-/* =========================================================
-   CARD
-   ========================================================= */
+
 .card {
     position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     border: 1px solid #e4e8ee;
     border-radius: 17px;
     background: #fff;
+    overflow: hidden;
     box-shadow: 0 7px 25px rgba(15,23,42,.055);
     transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
+
 .card::before {
     content: "";
     position: absolute;
@@ -481,35 +466,40 @@ header {
     transform: scaleX(0);
     transition: transform .4s ease;
 }
+
 .card:hover {
     transform: translateY(-9px);
     border-color: rgba(212,175,55,.42);
     box-shadow: 0 18px 40px rgba(15,23,42,.13);
 }
+
 .card:hover::before {
     transform: scaleX(1);
 }
+
 .card-image {
     position: relative;
-    width: 100%;
-    height: 215px;
+    height: 200px;
     overflow: hidden;
 }
+
 .card-image img {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
     transition: transform .6s ease;
 }
+
 .card:hover .card-image img {
     transform: scale(1.08);
 }
+
 .card-image-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(4,10,20,.65), rgba(4,10,20,.03) 65%);
 }
+
 .service-number {
     position: absolute;
     top: 12px;
@@ -529,6 +519,7 @@ header {
     font-size: .82rem;
     font-weight: 700;
 }
+
 .service-icon {
     position: absolute;
     left: 15px;
@@ -545,27 +536,28 @@ header {
     box-shadow: 0 7px 20px rgba(0,0,0,.22);
     transition: transform .35s ease;
 }
+
 .card:hover .service-icon {
     transform: rotate(-8deg) scale(1.08);
 }
+
 .card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+    padding: 18px 20px;
 }
+
 .card-title-row {
-    min-height: 48px;
     display: flex;
     align-items: center;
 }
+
 .card-content h3 {
     position: relative;
     padding-right: 13px;
     color: var(--navy);
-    font-size: 1.18rem;
+    font-size: 1.15rem;
     line-height: 1.6;
 }
+
 .card-content h3::before {
     content: "";
     position: absolute;
@@ -576,37 +568,14 @@ header {
     border-radius: 5px;
     background: var(--gold);
 }
-.card-content p {
-    margin-top: 10px;
-    color: var(--text-gray);
-    font-size: .91rem;
-    line-height: 1.8;
-}
-.service-link {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-    padding-top: 15px;
-    border-top: 1px solid #edf0f3;
-    color: var(--gold-dark);
-    font-size: .86rem;
-    font-weight: 700;
-}
-.service-link i {
-    transition: transform .3s ease;
-}
-.card:hover .service-link i {
-    transform: translateX(-5px);
-}
-/* =========================================================
-   CONTACT
-   ========================================================= */
+
+/* ========== CONTACT ========== */
 .contact {
     max-width: 1250px;
     margin: auto;
     padding: 40px 25px 70px;
 }
+
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -617,11 +586,13 @@ header {
     background: #fff;
     box-shadow: 0 5px 18px rgba(15,23,42,.07);
 }
+
 .contact-info h3 {
     margin-bottom: 25px;
     color: var(--navy);
     font-size: 1.3rem;
 }
+
 .info-item {
     display: flex;
     align-items: flex-start;
@@ -630,22 +601,26 @@ header {
     font-size: 1rem;
     font-weight: 600;
 }
+
 .activity-arrow {
     flex-shrink: 0;
     color: var(--gold-dark);
     font-size: 2.5rem;
     line-height: .8;
 }
+
 .phone-wrapper {
     display: flex;
     flex-direction: column;
 }
+
 .phone-row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 9px;
 }
+
 .phone-link {
     direction: ltr;
     color: var(--gold-dark);
@@ -653,21 +628,26 @@ header {
     font-size: 1.4rem;
     font-weight: 800;
 }
+
 .inline-call-btn {
     width: 42px;
     height: 42px;
+    min-width: 42px;
 }
+
 .mobile-only-msg {
     display: none;
     margin-top: 4px;
     color: var(--gold-dark);
     font-size: .8rem;
 }
+
 .contact-social-section {
     margin-top: 28px;
     padding-top: 18px;
     border-top: 1px dashed var(--border);
 }
+
 .contact-social-section > span {
     display: block;
     margin-bottom: 12px;
@@ -675,15 +655,24 @@ header {
     font-size: .92rem;
     font-weight: 700;
 }
+
 .contact-social-bar {
     direction: rtl;
     justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
 }
-/* =========================================================
-   FORM
-   ========================================================= */
+
+/* ========== FORM ========== */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
     width: 100%;
     padding: 13px 15px;
     border: 1px solid #17202d;
@@ -694,30 +683,40 @@ header {
     font-size: 1rem;
     direction: rtl;
     text-align: right;
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.form-group textarea {
     resize: vertical;
-    transition: all .3s ease;
 }
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: left 15px center;
+    cursor: pointer;
 }
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: #64748b;
     font-size: .87rem;
 }
+
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
     border-color: var(--gold);
     box-shadow: 0 0 0 3px rgba(212,175,55,.15);
 }
+
 .btn-gold {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 9px;
-    padding: 12px 20px;
+    padding: 14px 20px;
     border: none;
     border-radius: 9px;
     color: #111827;
@@ -725,18 +724,94 @@ header {
     font-size: 1rem;
     font-weight: 800;
     cursor: pointer;
+    transition: opacity .25s ease;
 }
+
+.btn-gold:hover {
+    opacity: .92;
+}
+
+.btn-gold:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
 .form-btn {
     width: 100%;
 }
-.form-status {
-    margin-top: 12px;
-    text-align: center;
-    font-weight: 700;
+
+/* ========== POPUP ========== */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 17, 31, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
-/* =========================================================
-   FOOTER
-   ========================================================= */
+
+.popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px 28px;
+    max-width: 360px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+}
+
+.popup-overlay.active .popup-box {
+    transform: scale(1);
+}
+
+.popup-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.popup-icon.success {
+    color: #16a34a;
+}
+
+.popup-icon.error {
+    color: #dc2626;
+}
+
+.popup-box p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #0f172a;
+    margin-bottom: 22px;
+}
+
+.popup-close-btn {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    border: none;
+    border-radius: 8px;
+    padding: 10px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+    cursor: pointer;
+    transition: opacity 0.25s ease;
+}
+
+.popup-close-btn:hover {
+    opacity: 0.9;
+}
+
+/* ========== FOOTER ========== */
 footer {
     padding: 25px 20px;
     text-align: center;
@@ -744,177 +819,405 @@ footer {
     background: var(--navy-dark);
     font-size: .9rem;
 }
+
+/* ========== FLOATING SCROLL BUTTONS ========== */
+.scroll-nav {
+    position: fixed;
+    bottom: 28px;
+    right: 18px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scroll-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #7eb8e8;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(30, 100, 160, 0.28);
+    transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.scroll-btn i {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.scroll-btn:hover {
+    background: #5a9fd4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(30, 100, 160, 0.35);
+}
+
+.scroll-btn:active {
+    transform: scale(0.95);
+}
+
 /* =========================================================
-   TABLET
+   TABLET (max-width: 992px)
    ========================================================= */
-@media screen and (max-width: 992px) {
+@media (max-width: 992px) {
     .hero-modern {
-        min-height: 530px;
+        min-height: 520px;
         padding: 80px 20px 35px;
     }
+
     .hero-modern-container {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 10px;
     }
+
     .hero-modern-visual {
         order: 1;
         min-height: 300px;
     }
+
     .hero-modern-content {
         order: 2;
         align-items: center;
-        text-align: center;
+        text-align: right;
     }
+
+    .hero-modern-content h1 {
+        text-align: center;
+        width: 100%;
+    }
+
     .hero-modern-content h1::after {
         margin-left: auto;
         margin-right: auto;
     }
 
-    /* تراز راست‌چین حتی در حالت وسط‌چین شدن کل بلاک */
     .hero-title-line {
         justify-content: flex-start;
-        max-width: 340px;
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        max-width: 420px;
+        margin-left: 10px;
+        margin-right: 15px;
     }
+
     .hero-credentials {
-        align-items: flex-start;
-        max-width: 340px;
-        margin-left: auto;
-        margin-right: auto;
+        align-items: stretch;
+        width: 100%;
+        max-width: 420px;
+        margin-left: 10px;
+        margin-right: 15px;
     }
+
     .hero-credentials span {
         justify-content: flex-start;
+        width: 100%;
     }
 
     .hero-profile-wrapper {
-        max-width: 350px;
+        max-width: 340px;
     }
+
     .hero-modern-logo {
         right: 12%;
+        width: 95px;
+        height: 95px;
     }
+
     .cards-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
+
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 }
+
 /* =========================================================
-   MOBILE
+   MOBILE (max-width: 700px)
    ========================================================= */
-@media screen and (max-width: 700px) {
+@media (max-width: 700px) {
     .nav-container {
         padding: 6px 12px;
+        gap: 8px;
     }
-    .header-social-bar {
-        gap: 6px;
-    }
-    .header-social-item {
-        width: 32px;
-        height: 32px;
-    }
+
     .logo {
-        font-size: .82rem;
+        font-size: .8rem;
     }
+
+    .header-social-bar {
+        gap: 5px;
+    }
+
+    .header-social-item {
+        width: 31px;
+        height: 31px;
+        min-width: 31px;
+    }
+
     .hero-modern {
-        min-height: 460px;
-        padding: 75px 15px 35px;
+        min-height: 450px;
+        padding: 72px 15px 30px;
     }
+
     .hero-modern-visual {
-        min-height: 270px;
+        min-height: 260px;
     }
+
     .hero-profile-wrapper {
-        max-width: 300px;
+        max-width: 280px;
     }
-    .hero-circle-one {
-        width: 330px;
-        height: 330px;
-    }
-    .hero-circle-two {
-        width: 275px;
-        height: 275px;
-    }
-    .hero-circle-three {
-        width: 215px;
-        height: 215px;
-    }
+
+    .hero-circle-one { width: 310px; height: 310px; }
+    .hero-circle-two { width: 255px; height: 255px; }
+    .hero-circle-three { width: 200px; height: 200px; }
+
     .hero-modern-logo {
-        width: 78px;
-        height: 78px;
-        top: 3px;
+        width: 72px;
+        height: 72px;
+        top: 2px;
         right: 8%;
     }
+
+    .hero-modern-content {
+        align-items: center;
+        text-align: right;
+    }
+
     .hero-modern-content h1 {
-        font-size: 1.6rem;
-        color: #ffffff !important;
+        font-size: 1.55rem;
+        text-align: center;
+        width: 100%;
     }
+
     .hero-title-line {
-        font-size: 1.0rem;
-        color: #ffffff !important;
-        max-width: 300px;
+        font-size: 1.3rem;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 8px;
+        margin-right: 12px;
+        padding-left: 0;
     }
+
     .hero-credentials {
         gap: 6px;
         margin-top: 12px;
-        max-width: 300px;
+        align-items: stretch;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 8px;
+        margin-right: 12px;
     }
+
     .hero-credentials span {
-        padding: 2px 0;
-        font-size: 0.9rem;
-        color: #ffffff !important;
+        font-size: 0.95rem;
+        justify-content: flex-start;
+        width: 100%;
+        white-space: nowrap;
     }
+
+    .section-title {
+        margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+        font-size: 1.5rem;
+    }
+
     .cards-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
+        max-width: 420px;
     }
+
+    .card-image {
+        height: 180px;
+    }
+
+    .card-content {
+        padding: 15px 18px;
+    }
+
+    .card-content h3 {
+        font-size: 1.08rem;
+    }
+
     .services {
-        padding: 55px 15px 30px;
+        padding: 50px 15px 25px;
     }
+
     .contact {
-        padding: 30px 15px 55px;
+        padding: 25px 15px 50px;
     }
+
     .contact-container {
-        padding: 25px 20px;
+        padding: 22px 18px;
+        gap: 25px;
     }
+
+    .contact-info h3 {
+        font-size: 1.15rem;
+        margin-bottom: 18px;
+    }
+
+    .info-item {
+        font-size: .95rem;
+        margin-bottom: 14px;
+    }
+
+    .phone-link {
+        font-size: 1.25rem;
+    }
+
+    .inline-call-btn {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
     .mobile-only-msg {
         display: block;
     }
-}
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-@media screen and (max-width: 400px) {
-    .header-social-item {
-        width: 29px;
-        height: 29px;
+
+    .contact-social-bar {
+        gap: 8px;
     }
-    .hero-modern {
-        min-height: 420px;
-    }
-    .hero-modern-visual {
-        min-height: 240px;
-    }
-    .hero-profile-wrapper {
-        max-width: 270px;
-    }
-    .hero-modern-logo {
-        width: 68px;
-        height: 68px;
-    }
-    .hero-modern-content h1 {
-        font-size: 1.7rem;
-    }
-    .hero-title-line {
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 12px 14px;
         font-size: .95rem;
-        max-width: 270px;
     }
-    .hero-credentials {
-        max-width: 270px;
+
+    .btn-gold {
+        padding: 13px 18px;
     }
-    .hero-credentials span {
-        font-size: .78rem;
+
+    .scroll-nav {
+        bottom: 20px;
+        right: 12px;
+        gap: 8px;
+    }
+
+    .scroll-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-btn i {
+        font-size: 0.9rem;
     }
 }
+
+/* =========================================================
+   SMALL MOBILE (max-width: 400px)
+   ========================================================= */
+@media (max-width: 400px) {
+    .nav-container {
+        padding: 5px 10px;
+    }
+
+    .logo {
+        font-size: .75rem;
+    }
+
+    .header-social-item {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+    }
+
+    .header-social-bar {
+        gap: 4px;
+    }
+
+    .hero-modern {
+        min-height: 410px;
+        padding: 68px 12px 25px;
+    }
+
+    .hero-modern-visual {
+        min-height: 230px;
+    }
+
+    .hero-profile-wrapper {
+        max-width: 250px;
+    }
+
+    .hero-modern-logo {
+        width: 64px;
+        height: 64px;
+    }
+
+    .hero-modern-content h1 {
+        font-size: 1.4rem;
+    }
+
+    .hero-title-line {
+        font-size: 1.2rem;
+        max-width: 100%;
+        gap: 8px;
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+
+    .hero-title-line i,
+    .hero-credentials i {
+        width: 26px;
+        height: 26px;
+        font-size: .75rem;
+    }
+
+    .hero-credentials {
+        max-width: 100%;
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+
+    .hero-credentials span {
+        font-size: 0.85rem;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .card-image {
+        height: 160px;
+    }
+
+    .service-number {
+        width: 34px;
+        height: 34px;
+        font-size: .75rem;
+    }
+
+    .service-icon {
+        width: 42px;
+        height: 42px;
+        left: 12px;
+        bottom: 12px;
+    }
+
+    .card-content h3 {
+        font-size: 1rem;
+    }
+
+    .contact-container {
+        padding: 18px 14px;
+    }
+
+    .phone-link {
+        font-size: 1.15rem;
+    }
+}
+
 /* =========================================================
    REDUCED MOTION
    ========================================================= */
@@ -922,6 +1225,7 @@ footer {
     html {
         scroll-behavior: auto;
     }
+
     *,
     *::before,
     *::after {
