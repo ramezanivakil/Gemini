@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     // ========== آدرس Worker ==========
-    const WORKER_URL = 'https://telegram-proxy.ramezani-free.workers.dev';
+    const WORKER_URL = 'https://api.ramezanivakil.ir';
     // ========== پاپ‌آپ ==========
     const popupOverlay = document.getElementById('popupOverlay');
     const popupMessage = document.getElementById('popupMessage');
