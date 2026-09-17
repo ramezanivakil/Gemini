@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // ========== آدرس روت جدید کلودفلر روی دامنه اصلی ==========
+    const WORKER_URL = 'https://ramezanivakil.ir';
+
     // ========== دکمه‌های شناور پیمایش ==========
     const scrollUp = document.getElementById('scrollUp');
     const scrollDown = document.getElementById('scrollDown');
@@ -16,10 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ========== آدرس Worker ==========
-    fetch('https://ramezanivakil.ir', {
-    method: 'POST',
-
     // ========== پاپ‌آپ ==========
     const popupOverlay = document.getElementById('popupOverlay');
     const popupMessage = document.getElementById('popupMessage');
@@ -27,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupClose = document.getElementById('popupClose');
 
     function showPopup(message, type = 'success') {
+        if (!popupMessage || !popupIcon || !popupOverlay) return;
         popupMessage.textContent = message;
         popupIcon.innerHTML = type === 'success'
             ? '<i class="fa-solid fa-circle-check"></i>'
@@ -36,16 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function hidePopup() {
-        popupOverlay.classList.remove('active');
+        if (popupOverlay) popupOverlay.classList.remove('active');
     }
 
     if (popupClose) {
         popupClose.addEventListener('click', hidePopup);
     }
 
-    popupOverlay.addEventListener('click', function (e) {
-        if (e.target === popupOverlay) hidePopup();
-    });
+    if (popupOverlay) {
+        popupOverlay.addEventListener('click', function (e) {
+            if (e.target === popupOverlay) hidePopup();
+        });
+    }
 
     // ========== محدود کردن ورودی شماره موبایل ==========
     const phoneInput = document.getElementById('phone');
