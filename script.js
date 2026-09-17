@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ========== آدرس روت جدید کلودفلر روی دامنه اصلی ==========
-    // اگر از مسیر اختصاصی استفاده می‌کنید، می‌توانید به صورت 'https://ramezanivakil.ir/api/contact' قرار دهید
+    // ========== آدرس Worker ==========
     const WORKER_URL = 'https://ramezanivakil.ir/api';
- 
+
+    // کلید مخفی (همان مقداری که در Cloudflare به عنوان API_SECRET گذاشتی)
+    const API_SECRET = 'RamezaniVakil2026!SecureKey#91';
+
     // ========== دکمه‌های شناور پیمایش ==========
     const scrollUp = document.getElementById('scrollUp');
     const scrollDown = document.getElementById('scrollDown');
@@ -27,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const popupClose = document.getElementById('popupClose');
 
     function showPopup(message, type = 'success') {
-        if (!popupMessage || !popupIcon || !popupOverlay) return;
         popupMessage.textContent = message;
         popupIcon.innerHTML = type === 'success'
             ? '<i class="fa-solid fa-circle-check"></i>'
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function hidePopup() {
-        if (popupOverlay) popupOverlay.classList.remove('active');
+        popupOverlay.classList.remove('active');
     }
 
     if (popupClose) {
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (phoneInput) {
         phoneInput.addEventListener('input', function () {
             let value = this.value.replace(/[^0-9۰-۹]/g, '');
-            value = value.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+            value = value.replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)));
             if (value.length > 11) {
                 value = value.slice(0, 11);
             }
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        // بررسی فیلد ربات‌نما (Honeypot)
+        // جلوگیری از ارسال ربات‌ها (Honeypot)
         const honeypot = document.getElementById('honeypot');
         if (honeypot && honeypot.value) return;
 
@@ -83,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value.trim();
 
-        // تبدیل اعداد فارسی به انگلیسی برای شماره موبایل
-        phone = phone.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+        // تبدیل اعداد فارسی به انگلیسی
+        phone = phone.replace(/[۰-۹]/g, d => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d)));
 
-        // ========== اعتبارسنجی فرم ==========
+        // ========== اعتبارسنجی ==========
         if (name.length < 3) {
             showPopup('لطفاً نام و نام خانوادگی را به درستی وارد کنید.', 'error');
             return;
@@ -112,14 +113,15 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // فعال کردن حالت بارگذاری (Loading)
+        // حالت بارگذاری
         setLoading(true);
 
         try {
             const response = await fetch(WORKER_URL, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-API-KEY': API_SECRET
                 },
                 body: JSON.stringify({
                     name: name,
@@ -136,14 +138,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 showPopup('درخواست شما با موفقیت ثبت شد.\nبه زودی با شما تماس گرفته می‌شود.', 'success');
                 form.reset();
             } else {
-                throw new Error(result.error || 'خطا در ارسال درخواست');
+                throw new Error(result.error || 'خطا در ارسال');
             }
 
         } catch (error) {
-            console.error('Submission Error:', error);
+            console.error(error);
             showPopup('خطا در ارسال پیام.\nلطفاً دوباره تلاش کنید یا مستقیماً تماس بگیرید.', 'error');
         } finally {
-            // غیرفعال کردن حالت بارگذاری در هر صورت
             setLoading(false);
         }
     });
@@ -153,4 +154,5 @@ document.addEventListener('DOMContentLoaded', function () {
         submitBtn.disabled = isLoading;
         btnText.textContent = isLoading ? 'در حال ارسال...' : 'ارسال درخواست مشاوره';
     }
+
 });
