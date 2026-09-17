@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ========== آدرس روت جدید کلودفلر روی دامنه اصلی ==========
-    const WORKER_URL = 'https://ramezanivakil.ir';
+    // ========== تنظیمات ربات بله ==========
+    const BALE_TOKEN = "1311806588:7V-y3xfPYjUdG4GNN5Qi86ApTsXLYUgFUAQ";
+    const CHAT_ID = "880496536";
+    
+    // آدرس رسمی API پیام‌رسان بله (بدون مشکل فیلترینگ در ایران)
+    const BALE_API_URL = `https://tapi.bale.ai/bot${BALE_TOKEN}/sendMessage`;
 
     // ========== دکمه‌های شناور پیمایش ==========
     const scrollUp = document.getElementById('scrollUp');
@@ -114,17 +118,22 @@ document.addEventListener('DOMContentLoaded', function () {
         setLoading(true);
 
         try {
-            const response = await fetch(WORKER_URL, {
+            // ساخت متن پیام برای ارسال به بله
+            const text = `⚖️ درخواست مشاوره جدید:\n\n` +
+                         `👤 نام: ${name}\n` +
+                         `📱 موبایل: ${phone}\n` +
+                         `📍 شهر: ${city}\n` +
+                         `📌 موضوع: ${subject}\n` +
+                         `💬 توضیحات: ${message}`;
+
+            const response = await fetch(BALE_API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: name,
-                    phone: phone,
-                    city: city,
-                    subject: subject,
-                    message: message
+                    chat_id: CHAT_ID,
+                    text: text
                 })
             });
 
@@ -134,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 showPopup('درخواست شما با موفقیت ثبت شد.\nبه زودی با شما تماس گرفته می‌شود.', 'success');
                 form.reset();
             } else {
-                throw new Error(result.error || 'خطا در ارسال');
+                throw new Error(result.description || 'خطا در ارسال');
             }
 
         } catch (error) {
