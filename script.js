@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ========== آدرس روت جدید کلودفلر روی دامنه اصلی ==========
     // اگر از مسیر اختصاصی استفاده می‌کنید، می‌توانید به صورت 'https://ramezanivakil.ir/api/contact' قرار دهید
-    const WORKER_URL = 'https://telegram-proxy.ramezani-free.workers.dev';
+    const WORKER_URL = 'https://api.ramezanivakil.ir';
 
     // ========== دکمه‌های شناور پیمایش ==========
     const scrollUp = document.getElementById('scrollUp');
