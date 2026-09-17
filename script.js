@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ========== تنظیمات ربات بله ==========
-    const BALE_TOKEN = "1311806588:7V-y3xfPYjUdG4GNN5Qi86ApTsXLYUgFUAQ";
-    const CHAT_ID = "880496536";
-    
-    // آدرس رسمی API پیام‌رسان بله (بدون مشکل فیلترینگ در ایران)
-    const BALE_API_URL = `https://tapi.bale.ai/bot${BALE_TOKEN}/sendMessage`;
+    // ========== آدرس روت جدید کلودفلر روی دامنه اصلی ==========
+    // اگر از مسیر اختصاصی استفاده می‌کنید، می‌توانید به صورت 'https://ramezanivakil.ir/api/contact' قرار دهید
+    const WORKER_URL = 'https://ramezanivakil.ir';
 
     // ========== دکمه‌های شناور پیمایش ==========
     const scrollUp = document.getElementById('scrollUp');
@@ -76,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
+        // بررسی فیلد ربات‌نما (Honeypot)
         const honeypot = document.getElementById('honeypot');
         if (honeypot && honeypot.value) return;
 
@@ -85,10 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const subject = document.getElementById('subject').value;
         const message = document.getElementById('message').value.trim();
 
-        // تبدیل اعداد فارسی به انگلیسی
+        // تبدیل اعداد فارسی به انگلیسی برای شماره موبایل
         phone = phone.replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
 
-        // ========== اعتبارسنجی ==========
+        // ========== اعتبارسنجی فرم ==========
         if (name.length < 3) {
             showPopup('لطفاً نام و نام خانوادگی را به درستی وارد کنید.', 'error');
             return;
@@ -114,26 +112,21 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // حالت بارگذاری
+        // فعال کردن حالت بارگذاری (Loading)
         setLoading(true);
 
         try {
-            // ساخت متن پیام برای ارسال به بله
-            const text = `⚖️ درخواست مشاوره جدید:\n\n` +
-                         `👤 نام: ${name}\n` +
-                         `📱 موبایل: ${phone}\n` +
-                         `📍 شهر: ${city}\n` +
-                         `📌 موضوع: ${subject}\n` +
-                         `💬 توضیحات: ${message}`;
-
-            const response = await fetch(BALE_API_URL, {
+            const response = await fetch(WORKER_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: text
+                    name: name,
+                    phone: phone,
+                    city: city,
+                    subject: subject,
+                    message: message
                 })
             });
 
@@ -143,13 +136,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 showPopup('درخواست شما با موفقیت ثبت شد.\nبه زودی با شما تماس گرفته می‌شود.', 'success');
                 form.reset();
             } else {
-                throw new Error(result.description || 'خطا در ارسال');
+                throw new Error(result.error || 'خطا در ارسال درخواست');
             }
 
         } catch (error) {
-            console.error(error);
+            console.error('Submission Error:', error);
             showPopup('خطا در ارسال پیام.\nلطفاً دوباره تلاش کنید یا مستقیماً تماس بگیرید.', 'error');
         } finally {
+            // غیرفعال کردن حالت بارگذاری در هر صورت
             setLoading(false);
         }
     });
