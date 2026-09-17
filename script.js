@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     // ========== آدرس Worker ==========
-    const WORKER_URL = 'https://api.ramezanivakil.ir';
+    const WORKER_URL ='https://ramezanivakil.ir/api';
     // ========== پاپ‌آپ ==========
     const popupOverlay = document.getElementById('popupOverlay');
     const popupMessage = document.getElementById('popupMessage');
