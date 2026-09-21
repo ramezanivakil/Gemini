@@ -300,11 +300,11 @@ header {
     position: relative;
     z-index: 4;
     width: 100%;
-    max-width: 660px;          /* بزرگ‌تر شد */
+    max-width: 600px;          /* بزرگ‌تر شد */
 }
 .hero-profile {
     width: 100%;
-    max-height: 660px;         /* بزرگ‌تر شد */
+    max-height: 600px;         /* بزرگ‌تر شد */
     object-fit: contain;
     filter: drop-shadow(0 20px 30px rgba(0,0,0,.45));
 }
@@ -802,7 +802,7 @@ footer {
         width: 100%;
     }
     .hero-profile-wrapper {
-        max-width: 380px;          /* بزرگ‌تر شد */
+        max-width: 340px;          /* بزرگ‌تر شد */
     }
     .hero-modern-logo {
         right: 12%;
@@ -845,7 +845,7 @@ footer {
         min-height: 260px;
     }
     .hero-profile-wrapper {
-        max-width: 410px;          /* بزرگ‌تر شد */
+        max-width: 390px;          /* بزرگ‌تر شد */
     }
     .hero-circle-one { width: 310px; height: 310px; }
     .hero-circle-two { width: 255px; height: 255px; }
@@ -989,7 +989,7 @@ footer {
         min-height: 230px;
     }
     .hero-profile-wrapper {
-        max-width: 380px;          /* بزرگ‌تر شد */
+        max-width: 370px;          /* بزرگ‌تر شد */
     }
     .hero-modern-logo {
         width: 64px;
